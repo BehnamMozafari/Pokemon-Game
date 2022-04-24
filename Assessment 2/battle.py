@@ -1,2 +1,4 @@
 class Battle:
-    pass
+    def rotating_mode_battle(self)  -> str: 
+
+

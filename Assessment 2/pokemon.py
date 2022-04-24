@@ -1,3 +1,6 @@
+__author__ = "Nhu Nguyen"
+
+
 from pokemon_base import PokemonBase
 
 
