@@ -28,6 +28,7 @@ class PokemonBase(ABC):
     def get_poke_type(self):
         return self.poke_type
 
+
     # Getter for name, speed and attack damage
     @abstractmethod
     def get_name(self):
@@ -38,17 +39,24 @@ class PokemonBase(ABC):
         pass
 
     @abstractmethod
-    def get_attack_damage(self):
+    def get_attack(self):
         pass
+
 
     # Damage calculating function when attacked by another Pokemon 
     def attack_calculation(self, another_pokemon):
         if self.get_poke_type() == "water":
-            return another_pokemon.get_attack_damage * another_pokemon.EFFECTIVENESS_WATER
+            water_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_WATER
+            return water_damage 
         if self.get_poke_type() == "fire":
-            return another_pokemon.get_attack_damage * another_pokemon.EFFECTIVENESS_FIRE
+            fire_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_FIRE
+            return fire_damage
         if self.get_poke_type() == "grass":
-            return another_pokemon.get_attack_damage * another_pokemon.EFFECTIVENESS_GRASS
+            grass_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_GRASS
+            return grass_damage
 
+
+    # String return function 
     def __str__(self) -> str:
         return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
+
