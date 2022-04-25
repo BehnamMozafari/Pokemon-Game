@@ -15,7 +15,8 @@ class Battle():
 
         pokemon_1 = team_1.front
         pokemon_2 = team_2.front 
-        while len(team_1) > 0 or len(team_2) > 0: 
+
+        while team_1.is_empty() == False or team_2.is_empty() == False: 
             if pokemon_1.get_speed() > pokemon_2.get_speed():
                 pokemon_1.get_attack()
                 pokemon_2.get_defend() 
@@ -75,12 +76,12 @@ class Battle():
                     team_2.append(temp_2)
 
 
-        if len(team_1) == 0 and len(team_2) == 0:  
+        if team_1.is_empty() == True and team_2.is_empty() == True:  
             print("Draw")
         else: 
-            if len(team_1) == 0: 
+            if team_1.is_empty() == True: 
                 print(team_1.team_name + " wins the battle")
-            elif len(team_2) == 0: 
+            elif team_2.is_empty() == True: 
                 print(team_2.team_name + " wins the battle")
 
 
