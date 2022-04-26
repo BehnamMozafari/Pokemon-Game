@@ -1,5 +1,4 @@
 from poke_team import PokeTeam
-from pokemon_base import attack_calculation 
 
 
 class Battle():
@@ -83,9 +82,3 @@ class Battle():
                 print(team_1.team_name + " wins the battle")
             elif team_2.is_empty() == True: 
                 print(team_2.team_name + " wins the battle")
-
-
-                
-            
-
-
