@@ -72,6 +72,9 @@ class GlitchMon(ABC):
 
 
 class MissingNo(GlitchMon):
+    EFFECTIVENESS_FIRE = 1
+    EFFECTIVENESS_WATER = 1
+    EFFECTIVENESS_GRASS = 1
 
     def __init__(self):
         GlitchMon.__init__(self, int((7 + 8 + 9) / 3), 1)
