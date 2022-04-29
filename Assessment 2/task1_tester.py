@@ -19,6 +19,33 @@ class TestTask1(TesterBase):
             self.verificationErrors.append(f"String method failed. {e}")
 
     ### ADD TESTS HERE
+    def test_bulbusaur_string(self):
+        from pokemon import Bulbasaur
+        try:
+            c = Bulbasaur()
+        except Exception as e:
+            self.verificationErrors.append(f"Bulbasaur could not be instantiated: {str(e)}.")
+            return
+        try:
+            s = str(c)
+            if s != "Bulbusaur's HP = 9 and level = 1":
+                self.verificationErrors.append(f"String method did not return correct string: {s}")
+        except Exception as e:
+            self.verificationErrors.append(f"String method failed. {e}")
+
+    def test_squirtle_string(self):
+        from pokemon import Squirtle
+        try:
+            c = Squirtle()
+        except Exception as e:
+            self.verificationErrors.append(f"Squirtle could not be instantiated: {str(e)}.")
+            return
+        try:
+            s = str(c)
+            if s != "Squirtle's HP = 8 and level = 1":
+                self.verificationErrors.append(f"String method did not return correct string: {s}")
+        except Exception as e:
+            self.verificationErrors.append(f"String method failed. {e}")
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestTask1)
