@@ -59,8 +59,6 @@ class Battle():
         pokemon_1 = team_1.front
         pokemon_2 = team_2.front
 
-
-
         while team_1.is_empty() == False or team_2.is_empty() == False: 
             if pokemon_1.get_speed() > pokemon_2.get_speed():
                 pokemon_1_attack = pokemon_1.attack_calculation()
