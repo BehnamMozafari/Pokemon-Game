@@ -31,6 +31,9 @@ class Charmander(PokemonBase):
         else:
             self.hp -= damage//2 
     
+    def get_poke_type(self) -> str:
+        return super().get_poke_type()
+    
     def __str__(self) -> str:
         return "Charmander's HP = "  + str(self.hp) + " and level = " + str(self.level)
 
@@ -63,6 +66,9 @@ class Bulbasaur(PokemonBase):
         else:
             self.hp -= damage // 2
 
+    def get_poke_type(self) -> str:
+        return super().get_poke_type()
+
     def __str__(self) -> str:
         return "Bulbasaur's HP = " + str(self.hp) + " and level = " + str(self.level)
 
@@ -94,6 +100,9 @@ class Squirtle(PokemonBase):
             self.hp -= damage
         else:
             self.hp -= damage // 2
+
+    def get_poke_type(self) -> str:
+        return super().get_poke_type()
 
     def __str__(self) -> str:
         return "Squirtle's HP = " + str(self.hp) + " and level = " + str(self.level)
