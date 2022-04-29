@@ -1,5 +1,5 @@
 from poke_team import PokeTeam
-
+from pokemon_base import attack_calculation 
 
 class Battle():
 
@@ -59,10 +59,10 @@ class Battle():
         pokemon_1 = team_1.front
         pokemon_2 = team_2.front
 
-        while team_1.is_empty() == False or team_2.is_empty() == False:
+        while team_1.is_empty() == False or team_2.is_empty() == False: 
             if pokemon_1.get_speed() > pokemon_2.get_speed():
-                pokemon_1.get_attack()
-                pokemon_2.get_defend()
+                pokemon_1_attack = pokemon_1.attack_calculation()
+                pokemon_2.damage_after_attack(pokemon_1_attack)
 
                 if pokemon_2.hp <= 0:
                     pokemon_2.serve()
@@ -70,11 +70,10 @@ class Battle():
                     temp_1 = pokemon_1.serve()
                     team_1.append(temp_1)
 
-
-                elif pokemon_2.hp > 0:
-                    pokemon_1.hp -= 1
-                    pokemon_2.hp -= 1
-                    temp_1 = pokemon_1.serve()
+                elif pokemon_2.hp > 0: 
+                    pokemon_1.hp -= 1  
+                    pokemon_2.hp -= 1 
+                    temp_1 = pokemon_1.serve()  
                     temp_2 = pokemon_2.serve()
                     if pokemon_1.hp > 0:
                         team_1.append(temp_1)
@@ -82,10 +81,10 @@ class Battle():
                         team_2.append(temp_2)
 
 
-
-            elif pokemon_1.get_speed() < pokemon_2.get_speed():
-                pokemon_2.get_attack()
-                pokemon_1.get_defend()
+                        
+            elif pokemon_1.get_speed() < pokemon_2.get_speed(): 
+                pokemon_2_attack = pokemon_2.attack_calculation()
+                pokemon_1.damage_after_attack(pokemon_2_attack)
 
                 if pokemon_1.hp <= 0:
                     pokemon_1.serve()
@@ -104,14 +103,14 @@ class Battle():
                         team_1.append(temp_1)
 
 
-            elif pokemon_1.get_speed() == pokemon_2.get_speed():
-                pokemon_1.get_attack()
-                pokemon_1.get_defend()
-                pokemon_2.get_attack()
-                pokemon_2.get_defend()
-                pokemon_1.hp -= 1
-                pokemon_2.hp -= 1
-                temp_1 = pokemon_1.serve()
+            elif pokemon_1.get_speed() == pokemon_2.get_speed(): 
+                pokemon_1_attack = pokemon_1.attack_calculation()
+                pokemon_2.damage_after_attack(pokemon_1_attack)
+                pokemon_2_attack = pokemon_2.attack_calculation()
+                pokemon_1.damage_after_attack(pokemon_2_attack) 
+                pokemon_1.hp -= 1  
+                pokemon_2.hp -= 1 
+                temp_1 = pokemon_1.serve() 
                 temp_2 = pokemon_2.serve()
                 if pokemon_1.hp > 0:
                     team_1.append(temp_1)
