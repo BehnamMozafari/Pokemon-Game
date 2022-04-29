@@ -3,14 +3,11 @@ from poke_team import PokeTeam
 class Battle():
 
     def __init__(self, trainer_one_name: str, trainer_two_name: str) -> None:
-        self.team_1 = PokeTeam.__init__(trainer_one_name)
-        self.team_2 = PokeTeam.__init__(trainer_two_name)
+        self.team_1 = PokeTeam(trainer_one_name)
+        self.team_2 = PokeTeam(trainer_two_name)
         self.battle_mode = None
 
     def set_mode_battle(self) -> str:
-        team1_name = input("Trainer one name: ")
-        team2_name = input("Trainer two name: ")
-        self.__init__(team1_name, team2_name)
         self.battle_mode = 0
         self.team_1.choose_team(self.battle_mode, None)
         self.team_2.choose_team(self.battle_mode, None)
@@ -18,7 +15,7 @@ class Battle():
         while self.team_1.team.__len__() >= 1 and self.team_2.team.__len__() >= 1:
             u1: object = self.team_1.team.pop()
             u2: object = self.team_2.team.pop()
-            if u1.get_speed() > u2.get.speed():
+            if u1.get_speed() > u2.get_speed():
                 u2.damage_after_attacked(u1.get_attack())
                 if u2.get_hp() > 0:
                     u1.damage_after_attacked(u2.get_attack())

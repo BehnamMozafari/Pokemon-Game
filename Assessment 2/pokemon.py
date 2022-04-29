@@ -32,7 +32,7 @@ class Charmander(PokemonBase):
     # Charmander calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.defend:
+        if damage > self.get_defence():
             self.hp -= damage
         else:
             self.hp -= damage//2
