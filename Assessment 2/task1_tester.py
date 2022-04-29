@@ -19,7 +19,7 @@ class TestTask1(TesterBase):
             self.verificationErrors.append(f"String method failed. {e}")
 
     ### ADD TESTS HERE
-    def test_bulbusaur_string(self):
+    def test_bulbasaur_string(self):
         from pokemon import Bulbasaur
         try:
             c = Bulbasaur()
@@ -28,7 +28,7 @@ class TestTask1(TesterBase):
             return
         try:
             s = str(c)
-            if s != "Bulbusaur's HP = 9 and level = 1":
+            if s != "Bulbasaur's HP = 7 and level = 1":
                 self.verificationErrors.append(f"String method did not return correct string: {s}")
         except Exception as e:
             self.verificationErrors.append(f"String method failed. {e}")
