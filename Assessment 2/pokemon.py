@@ -86,7 +86,7 @@ class Bulbasaur(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        return "Bulbasaur's HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Bulbasaur's HP = "  + str(self.hp) + " and level = " + str(self.level)
 
 
 """Squirtle class"""
