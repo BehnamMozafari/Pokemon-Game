@@ -19,19 +19,6 @@ class TestTask1(TesterBase):
             self.verificationErrors.append(f"String method failed. {e}")
 
     ### ADD TESTS HERE
-    def test_poke_type(self):
-        from pokemon import Charmander
-        try:
-            c = Charmander()
-            type123 = c.get_poke_type()
-        except Exception as e:
-            self.verificationErrors.append(f"Charmander could not be instantiated: {str(e)}.")
-            return
-        try:
-            if type123 != "Fire":
-                self.verificationErrors.append(f"String method did not return correct string: {s}")
-        except Exception as e:
-            self.verificationErrors.append(f"String method failed. {e}")
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestTask1)
