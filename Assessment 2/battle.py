@@ -114,9 +114,9 @@ class Battle():
                     team_2.append(temp_2)
 
         if team_1.is_empty() == True and team_2.is_empty() == True:
-            print("Draw")
+            return "Draw"
         else:
             if team_1.is_empty() == True:
-                print(team_1.team_name + " wins the battle")
+                return team_1.team_name + " wins the battle"
             elif team_2.is_empty() == True:
-                print(team_2.team_name + " wins the battle")
+                return team_2.team_name + " wins the battle"
