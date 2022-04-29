@@ -5,7 +5,6 @@ Defines the PokeTeam class used to assemble a team.
 
 __author__ = "Behnam Mozafari"
 
-import copy
 from stack_adt import ArrayStack
 from queue_adt import CircularQueue
 from array_sorted_list import ArraySortedList
@@ -20,17 +19,21 @@ class PokeTeam:
         self.team_name = team_name
         self.battle_mode = 0
         self.limit = 6
+        self.criterion = None
 
     def choose_team(self, battle_mode: int, criterion: str = None) -> None:
         """ Initialises team ADT, Asks for user to input team, calls assign_team method
         :param battle_mode: the desired battle mode, either 0, 1 or 2
         :param  criterion: attribute used to order team in Optimised Mode Battle
-        :raises ValueError: if battle_mode is not 0, 1 or 2
+        :raises ValueError: if battle_mode is not 0, 1 or 2, or if criterion is not 'lvl', 'hp', 'atk', 'def' or 'spd'
         :complexity:
         """
         battle_modes = [0, 1, 2]
+        possible_criterions = ['lvl', 'hp', 'atk', 'def', 'spd']
         if battle_mode not in battle_modes:
             raise ValueError("Invalid Battle Mode\n")
+        if criterion not in possible_criterions:
+            raise ValueError("Invalid Criterion\n")
 
         self.battle_mode = battle_mode
         if self.battle_mode == 0:
@@ -38,7 +41,7 @@ class PokeTeam:
         elif self.battle_mode == 1:
             self.team = CircularQueue(self.limit)
         else:
-            "self.team ="
+            self.team = ArraySortedList(self.limit)
 
         team_prompt = "Howdy Trainer! Choose your team as C B S\nwhere C is the number of Charmanders\n      B is the" \
                       " number of Bulbasaurs\n      S is the number of Squirtles\n"
@@ -89,7 +92,7 @@ class PokeTeam:
                 squirtle = Squirtle()
                 self.team.append(squirtle)
         else:
-            pass
+
 
     def __str__(self) -> str:
         """ String representation of PokeTeam
