@@ -28,7 +28,7 @@ class TestTask1(TesterBase):
             return
         try:
             s = str(c)
-            if s != "Bulbasaur's HP = 7 and level = 1":
+            if s != "Bulbasaur's HP = 9 and level = 1":
                 self.verificationErrors.append(f"String method did not return correct string: {s}")
         except Exception as e:
             self.verificationErrors.append(f"String method failed. {e}")
