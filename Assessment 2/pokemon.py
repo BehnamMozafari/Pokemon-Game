@@ -27,8 +27,9 @@ class Charmander(PokemonBase):
     def get_defend(self):
         return self.defend 
     
-    def damage_after_attacked(self, damage)-> None:
-        if(damage > self.defend):
+    def damage_after_attacked(self, another_pokemon: PokemonBase)-> None:
+        damage = self.attack_calculation(another_pokemon)
+        if damage > self.defend:
             self.hp -= damage
         else:
             self.hp -= damage//2 
@@ -59,15 +60,16 @@ class Bulbasaur(PokemonBase):
         return 5
 
     def get_defend(self):
-        return self.defend 
+        return self.defend
 
-    def damage_after_attacked(self, damage)-> None:
-        if(damage > self.get_defend + 5):
+    def damage_after_attacked(self, another_pokemon: PokemonBase) -> None:
+        damage = self.attack_calculation(another_pokemon)
+        if damage > self.defend:
             self.hp -= damage
         else:
-            self.hp -= damage//2 
+            self.hp -= damage // 2
 
-            
+
 
 
 class Squirtle(PokemonBase):
@@ -91,12 +93,13 @@ class Squirtle(PokemonBase):
         return 4 + self.level // 2
 
     def get_defend(self):
-        return self.defend 
-    
-    def damage_after_attacked(self, damage)-> None:
-        if(damage > self.defend * 2):
+        return self.defend
+
+    def damage_after_attacked(self, another_pokemon: PokemonBase) -> None:
+        damage = self.attack_calculation(another_pokemon)
+        if damage > self.defend:
             self.hp -= damage
         else:
-            self.hp -= damage//2 
+            self.hp -= damage // 2
 
 
