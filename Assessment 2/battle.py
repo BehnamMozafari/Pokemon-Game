@@ -61,8 +61,7 @@ class Battle():
 
         while team_1.is_empty() == False or team_2.is_empty() == False: 
             if pokemon_1.get_speed() > pokemon_2.get_speed():
-                pokemon_1_attack = pokemon_1.attack_calculation()
-                pokemon_2.damage_after_attack(pokemon_1_attack)
+                pokemon_2.damage_after_attack(pokemon_1.get_attack())
 
                 if pokemon_2.hp <= 0:
                     pokemon_2.serve()
@@ -83,8 +82,7 @@ class Battle():
 
                         
             elif pokemon_1.get_speed() < pokemon_2.get_speed(): 
-                pokemon_2_attack = pokemon_2.attack_calculation()
-                pokemon_1.damage_after_attack(pokemon_2_attack)
+                pokemon_1.damage_after_attack(pokemon_2.get_attack())
 
                 if pokemon_1.hp <= 0:
                     pokemon_1.serve()
@@ -104,10 +102,8 @@ class Battle():
 
 
             elif pokemon_1.get_speed() == pokemon_2.get_speed(): 
-                pokemon_1_attack = pokemon_1.attack_calculation()
-                pokemon_2.damage_after_attack(pokemon_1_attack)
-                pokemon_2_attack = pokemon_2.attack_calculation()
-                pokemon_1.damage_after_attack(pokemon_2_attack) 
+                pokemon_2.damage_after_attack(pokemon_1.get_attack())
+                pokemon_1.damage_after_attack(pokemon_2.get_attack()) 
                 pokemon_1.hp -= 1  
                 pokemon_2.hp -= 1 
                 temp_1 = pokemon_1.serve() 

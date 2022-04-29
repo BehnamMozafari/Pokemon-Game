@@ -6,12 +6,11 @@ from abc import ABC, abstractmethod
 
 class PokemonBase(ABC):
     """Abstract class: PokemonBase"""
-    GAME_LEVEL = 1
 
     def __init__(self, hp: int, poke_type: str) -> None:
         self.hp = hp
         self.poke_type = poke_type
-        self.level = PokemonBase.GAME_LEVEL
+        self.level = 1
 
     def get_hp(self):
         return self.hp
@@ -29,7 +28,7 @@ class PokemonBase(ABC):
         return self.poke_type
 
 
-    # Getter for name, speed and attack damage
+    # Getter for name, speed, attack, defend, damage_after_attack
     @abstractmethod
     def get_name(self):
         pass
@@ -41,6 +40,18 @@ class PokemonBase(ABC):
     @abstractmethod
     def get_attack(self):
         pass
+
+    @abstractmethod
+    def get_name(self):
+        pass 
+
+    @abstractmethod
+    def get_defend(self):
+        pass
+
+    @abstractmethod
+    def damage_after_attacked(self): 
+        pass 
 
 
     # Damage calculating function when attacked by another Pokemon 
