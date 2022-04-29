@@ -97,10 +97,10 @@ class PokeTeam:
         output = ""
         team_length = len(self.team)
         if self.battle_mode == 0:
-            for i in range(team_length - 1, -1, -1):
-                current_pokemon = self.team.item_at_index(i)
+            for i in range(team_length):
+                current_pokemon = self.team.item_at_index(team_length - 1 - i)
                 output += str(current_pokemon)
-                if i != 0:
+                if i != team_length - 1:
                     output += ", "
             return output
         elif self.battle_mode == 1:
