@@ -37,8 +37,8 @@ class PokemonBase(ABC):
         return self.level
 
     """level setter"""
-    def set_level(self, level):
-        self.level = level
+    def update_level(self):
+        self.level += 1
 
     """increase hp by 1 function"""
     def increase_hp(self):
@@ -82,13 +82,13 @@ class PokemonBase(ABC):
     """Attack calculation based on poke type"""
     def attack_calculation(self, another_pokemon):
         if self.get_poke_type() == "water":
-            water_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_WATER
+            water_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_WATER
             return water_damage 
         if self.get_poke_type() == "fire":
-            fire_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_FIRE
+            fire_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_FIRE
             return fire_damage
         if self.get_poke_type() == "grass":
-            grass_damage = another_pokemon.get_attack * another_pokemon.EFFECTIVENESS_GRASS
+            grass_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_GRASS
             return grass_damage
 
 

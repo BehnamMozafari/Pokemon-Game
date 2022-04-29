@@ -1,9 +1,10 @@
 __author__ = "Nhu Nguyen"
 
-
 from pokemon_base import PokemonBase
 
 """Charmander class"""
+
+
 class Charmander(PokemonBase):
     """Charmander type effectiveness"""
     EFFECTIVENESS_FIRE = 1
@@ -35,7 +36,7 @@ class Charmander(PokemonBase):
         if damage > self.get_defence():
             self.hp -= damage
         else:
-            self.hp -= damage//2
+            self.hp -= damage // 2
 
     # Charmander poke type getter
     def get_poke_type(self) -> str:
@@ -43,10 +44,12 @@ class Charmander(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        return "Charmander's HP = "  + str(self.hp) + " and level = " + str(self.level)
+        return "Charmander's HP = " + str(self.hp) + " and level = " + str(self.level)
 
 
 """Bulbasaur class"""
+
+
 class Bulbasaur(PokemonBase):
     """Bulbasaur type effectiveness"""
     EFFECTIVENESS_FIRE = 2
@@ -75,7 +78,7 @@ class Bulbasaur(PokemonBase):
     # Bulbasaur calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.defend:
+        if damage > self.get_defence():
             self.hp -= damage
         else:
             self.hp -= damage // 2
@@ -86,10 +89,12 @@ class Bulbasaur(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        return "Bulbasaur's HP = "  + str(self.hp) + " and level = " + str(self.level)
+        return "Bulbasaur's HP = " + str(self.hp) + " and level = " + str(self.level)
 
 
 """Squirtle class"""
+
+
 class Squirtle(PokemonBase):
     """Squirtle type effectiveness"""
     EFFECTIVENESS_FIRE = 0.5
@@ -113,7 +118,7 @@ class Squirtle(PokemonBase):
 
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.defend:
+        if damage > self.get_defence():
             self.hp -= damage
         else:
             self.hp -= damage // 2
@@ -123,4 +128,3 @@ class Squirtle(PokemonBase):
 
     def __str__(self) -> str:
         return "Squirtle's HP = " + str(self.hp) + " and level = " + str(self.level)
-
