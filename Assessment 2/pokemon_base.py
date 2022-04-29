@@ -39,6 +39,9 @@ class PokemonBase(ABC):
     def increase_hp(self):
         self.hp += 1
 
+    def decrease_hp(self):
+        self.hp -= 1
+
 
     # Getter for name, speed, attack, defend, damage_after_attack
     @abstractmethod

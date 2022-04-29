@@ -63,15 +63,15 @@ class Battle():
             if pokemon_1.get_speed() > pokemon_2.get_speed():
                 pokemon_2.damage_after_attack(pokemon_1.get_attack())
 
-                if pokemon_2.hp <= 0:
+                if pokemon_2.get_hp() <= 0:
                     pokemon_2.serve()
                     pokemon_1.update_level()
                     temp_1 = pokemon_1.serve()
                     team_1.append(temp_1)
 
-                elif pokemon_2.hp > 0: 
-                    pokemon_1.hp -= 1  
-                    pokemon_2.hp -= 1 
+                elif pokemon_2.get_hp() > 0: 
+                    pokemon_1.decrease_hp()
+                    pokemon_2.decrease_hp()
                     temp_1 = pokemon_1.serve()  
                     temp_2 = pokemon_2.serve()
                     if pokemon_1.hp > 0:
@@ -84,15 +84,15 @@ class Battle():
             elif pokemon_1.get_speed() < pokemon_2.get_speed(): 
                 pokemon_1.damage_after_attack(pokemon_2.get_attack())
 
-                if pokemon_1.hp <= 0:
+                if pokemon_1.get_hp <= 0:
                     pokemon_1.serve()
                     pokemon_2.update_level()
                     temp_2 = pokemon_2.serve()
                     team_2.append(temp_2)
 
-                elif pokemon_1.hp > 0:
-                    pokemon_2.hp -= 1
-                    pokemon_1.hp -= 1
+                elif pokemon_1.get_hp > 0:
+                    pokemon_2.decrease_hp()
+                    pokemon_1.decrease_hp()
                     temp_2 = pokemon_2.serve()
                     temp_1 = pokemon_1.serve()
                     if pokemon_2.hp > 0:
@@ -104,13 +104,13 @@ class Battle():
             elif pokemon_1.get_speed() == pokemon_2.get_speed(): 
                 pokemon_2.damage_after_attack(pokemon_1.get_attack())
                 pokemon_1.damage_after_attack(pokemon_2.get_attack()) 
-                pokemon_1.hp -= 1  
-                pokemon_2.hp -= 1 
+                pokemon_1.decrease_hp()
+                pokemon_2.decrease_hp()
                 temp_1 = pokemon_1.serve() 
                 temp_2 = pokemon_2.serve()
-                if pokemon_1.hp > 0:
+                if pokemon_1.get_hp > 0:
                     team_1.append(temp_1)
-                if pokemon_2.hp > 0:
+                if pokemon_2.get_hp > 0:
                     team_2.append(temp_2)
 
         if team_1.is_empty() == True and team_2.is_empty() == True:
