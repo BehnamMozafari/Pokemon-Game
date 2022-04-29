@@ -11,21 +11,18 @@ class Charmander(PokemonBase):
 
     def __init__(self) -> None:
         PokemonBase.__init__(self, 7, "Fire")
-        self.name = "Charmander"
-        self.speed = 7
-        self.defend = 4 
 
     def get_name(self):
-        return self.name
+        return "Charmander"
 
     def get_speed(self):
-        return self.speed + self.level
+        return 7 + self.level
 
     def get_attack(self):
         return 6 + self.level
 
-    def get_defend(self):
-        return self.defend 
+    def get_defence(self):
+        return 7
     
     def damage_after_attacked(self, another_pokemon: PokemonBase)-> None:
         damage = self.attack_calculation(another_pokemon)
@@ -34,8 +31,8 @@ class Charmander(PokemonBase):
         else:
             self.hp -= damage//2 
     
-    def update_level(self):  
-        self.level += 1 
+    def __str__(self) -> str:
+        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
 
 
 
@@ -46,21 +43,18 @@ class Bulbasaur(PokemonBase):
 
     def __init__(self) -> None:
         PokemonBase.__init__(self, 9, "Grass")
-        self.name = "Bulbasaur"
-        self.speed = 7
-        self.defend = 5
 
     def get_name(self):
-        return self.name
+        return "Bulbasaur"
 
     def get_speed(self):
-        return self.speed + self.level // 2
+        return 7 + self.level // 2
 
     def get_attack(self):
         return 5
 
-    def get_defend(self):
-        return self.defend
+    def get_defence(self):
+        return 5
 
     def damage_after_attacked(self, another_pokemon: PokemonBase) -> None:
         damage = self.attack_calculation(another_pokemon)
@@ -69,6 +63,8 @@ class Bulbasaur(PokemonBase):
         else:
             self.hp -= damage // 2
 
+    def __str__(self) -> str:
+        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
 
 
 
@@ -79,21 +75,18 @@ class Squirtle(PokemonBase):
 
     def __init__(self) -> None:
         PokemonBase.__init__(self, 8, "Water")
-        self.name = "Squirtle"
-        self.speed = 7
-        self.defend = 6 + self.level
 
     def get_name(self):
-        return self.name
+        return "Squirtle"
 
     def get_speed(self):
-        return self.speed
+        return 7
 
     def get_attack(self):
         return 4 + self.level // 2
 
-    def get_defend(self):
-        return self.defend
+    def get_defence(self):
+        return 6 + self.level
 
     def damage_after_attacked(self, another_pokemon: PokemonBase) -> None:
         damage = self.attack_calculation(another_pokemon)
@@ -102,4 +95,6 @@ class Squirtle(PokemonBase):
         else:
             self.hp -= damage // 2
 
+    def __str__(self) -> str:
+        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
 
