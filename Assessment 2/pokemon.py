@@ -32,7 +32,7 @@ class Charmander(PokemonBase):
             self.hp -= damage//2 
     
     def __str__(self) -> str:
-        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Charmander's HP = "  + str(self.hp) + " and level = " + str(self.level)
 
 
 
@@ -64,7 +64,7 @@ class Bulbasaur(PokemonBase):
             self.hp -= damage // 2
 
     def __str__(self) -> str:
-        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Bulbasaur's HP = " + str(self.hp) + " and level = " + str(self.level)
 
 
 
@@ -96,5 +96,5 @@ class Squirtle(PokemonBase):
             self.hp -= damage // 2
 
     def __str__(self) -> str:
-        return str(self.get_name()) + "'s HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Squirtle's HP = " + str(self.hp) + " and level = " + str(self.level)
 
