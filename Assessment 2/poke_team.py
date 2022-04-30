@@ -166,5 +166,9 @@ class PokeTeam:
                 if not i == team_length - 1:
                     output += ", "
             return output
-        else:
-            pass
+        elif self.battle_mode == 2:
+            for i in range(team_length):
+                current_pokemon = self.team.item_at_index(i)
+                output += str(current_pokemon)
+                if not i == team_length - 1:
+                    output += ", "

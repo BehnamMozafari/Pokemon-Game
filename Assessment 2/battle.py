@@ -1,3 +1,10 @@
+""" PokeTeam class implementation.
+
+Defines the PokeTeam class used to assemble a team.
+"""
+
+__author__ = "Behnam Mozafari, Zhongxun Pan, Nhu Nguyen"
+
 from poke_team import PokeTeam
 
 
