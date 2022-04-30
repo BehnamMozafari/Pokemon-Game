@@ -94,61 +94,58 @@ class PokeTeam:
             for _ in range(squir):
                 squirtle = Squirtle()
                 self.team.append(squirtle)
-        elif self.criterion == 'lvl':
-            for _ in range(charm):
-                charmander = Charmander()
-                self.team.add(ListItem(charmander, charmander.get_level()))
-            for _ in range(bulb):
-                bulbasaur = Bulbasaur()
-                self.team.add(ListItem(bulbasaur, bulbasaur.get_level()))
-            for _ in range(squir):
-                squirtle = Squirtle()
-                self.team.add(ListItem(squirtle, squirtle.get_level()))
-        elif self.criterion == 'hp':
-            for _ in range(charm):
-                charmander = Charmander()
-                self.team.add(ListItem(charmander, charmander.get_hp()))
-            for _ in range(bulb):
-                bulbasaur = Bulbasaur()
-                self.team.add(ListItem(bulbasaur, bulbasaur.get_hp()))
-            for _ in range(squir):
-                squirtle = Squirtle()
-                self.team.add(ListItem(squirtle, squirtle.get_hp()))
-        elif self.criterion == 'atk':
-            for _ in range(charm):
-                charmander = Charmander()
-                self.team.add(ListItem(charmander, charmander.get_attack()))
-            for _ in range(bulb):
-                bulbasaur = Bulbasaur()
-                self.team.add(ListItem(bulbasaur, bulbasaur.get_attack()))
-            for _ in range(squir):
-                squirtle = Squirtle()
-                self.team.add(ListItem(squirtle, squirtle.get_attack()))
-        elif self.criterion == 'def':
-            for _ in range(charm):
-                charmander = Charmander()
-                self.team.add(ListItem(charmander, charmander.get_defence()))
-            for _ in range(bulb):
-                bulbasaur = Bulbasaur()
-                self.team.add(ListItem(bulbasaur, bulbasaur.get_defence()))
-            for _ in range(squir):
-                squirtle = Squirtle()
-                self.team.add(ListItem(squirtle, squirtle.get_defence()))
-        else:
-            for _ in range(charm):
-                charmander = Charmander()
-                self.team.add(ListItem(charmander, charmander.get_speed()))
-            for _ in range(bulb):
-                bulbasaur = Bulbasaur()
-                self.team.add(ListItem(bulbasaur, bulbasaur.get_speed()))
-            for _ in range(squir):
-                squirtle = Squirtle()
-                self.team.add(ListItem(squirtle, squirtle.get_speed()))
-
-
-
-
-
+        elif self.battle_mode == 2:
+            if self.criterion == 'lvl':
+                for _ in range(charm):
+                    charmander = Charmander()
+                    self.team.add(ListItem(charmander, charmander.get_level()))
+                for _ in range(bulb):
+                    bulbasaur = Bulbasaur()
+                    self.team.add(ListItem(bulbasaur, bulbasaur.get_level()))
+                for _ in range(squir):
+                    squirtle = Squirtle()
+                    self.team.add(ListItem(squirtle, squirtle.get_level()))
+            elif self.criterion == 'hp':
+                for _ in range(charm):
+                    charmander = Charmander()
+                    self.team.add(ListItem(charmander, charmander.get_hp()))
+                for _ in range(bulb):
+                    bulbasaur = Bulbasaur()
+                    self.team.add(ListItem(bulbasaur, bulbasaur.get_hp()))
+                for _ in range(squir):
+                    squirtle = Squirtle()
+                    self.team.add(ListItem(squirtle, squirtle.get_hp()))
+            elif self.criterion == 'atk':
+                for _ in range(charm):
+                    charmander = Charmander()
+                    self.team.add(ListItem(charmander, charmander.get_attack()))
+                for _ in range(bulb):
+                    bulbasaur = Bulbasaur()
+                    self.team.add(ListItem(bulbasaur, bulbasaur.get_attack()))
+                for _ in range(squir):
+                    squirtle = Squirtle()
+                    self.team.add(ListItem(squirtle, squirtle.get_attack()))
+            elif self.criterion == 'def':
+                for _ in range(charm):
+                    charmander = Charmander()
+                    self.team.add(ListItem(charmander, charmander.get_defence()))
+                for _ in range(bulb):
+                    bulbasaur = Bulbasaur()
+                    self.team.add(ListItem(bulbasaur, bulbasaur.get_defence()))
+                for _ in range(squir):
+                    squirtle = Squirtle()
+                    self.team.add(ListItem(squirtle, squirtle.get_defence()))
+            elif self.criterion == 'spd':
+                for _ in range(charm):
+                    charmander = Charmander()
+                    self.team.add(ListItem(charmander, charmander.get_speed()))
+                for _ in range(bulb):
+                    bulbasaur = Bulbasaur()
+                    self.team.add(ListItem(bulbasaur, bulbasaur.get_speed()))
+                for _ in range(squir):
+                    squirtle = Squirtle()
+                    self.team.add(ListItem(squirtle, squirtle.get_speed()))
+            self.team.poke_reorder()
 
     def __str__(self) -> str:
         """ String representation of PokeTeam
