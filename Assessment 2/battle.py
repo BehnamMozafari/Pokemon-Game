@@ -142,5 +142,5 @@ class Battle():
                 return self.team_1.team_name
 
 if __name__ == '__main__':
-    x  = Battle("Nhu","Khoa");
+    x  = Battle("AB","CD");
     print(x.rotating_mode_battle())
