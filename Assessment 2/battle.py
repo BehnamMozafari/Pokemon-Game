@@ -108,7 +108,7 @@ class Battle():
                         self.team_1.team.append(pokemon_1)
 
             # Third check condition: if the speed of pokemon_1 and pokemon_2 equals, calculate the hp after attack
-            # Each pokemon hp is decreased by 1 as well
+            # Each pokemon hp is decreased by 1 if they both alive
             # If ones hp <= 0, that pokemon get removed from the arraylist
             # If ones hp > 0, that pokemon get sent to the back of the queue
             elif pokemon_1.get_speed() == pokemon_2.get_speed():
@@ -123,10 +123,10 @@ class Battle():
                         self.team_2.team.append(pokemon_2)
                 elif pokemon_1.get_hp <= 0 and pokemon_2.get_hp <= 0:
                     pass
-                elif pokemon_1.get_hp <= 0:
+                elif pokemon_1.get_hp <= 0 and pokemon_2.get_hp > 0:
                     pokemon_1.update_level()
                     self.team_1.team.append(pokemon_1)
-                elif pokemon_2.get_hp <= 0:
+                elif pokemon_2.get_hp <= 0 and pokemon_1.get_hp > 0:
                     pokemon_2.update_level()
                     self.team_2.team.append(pokemon_2)
 
