@@ -5,6 +5,7 @@
 
 from referential_array import ArrayR
 from sorted_list import *
+from pokemon import Charmander, Bulbasaur, Squirtle
 
 __author__ = 'Maria Garcia de la Banda and Brendon Taylor. Modified by Alexey Ignatiev and Graeme Gange'
 __docformat__ = 'reStructuredText'
@@ -125,7 +126,7 @@ class ArraySortedList(SortedList[T]):
 
         return low
 
-    def reorder(self) -> None:
+    def poke_reorder(self) -> None:
         """ sorts list in non-increasing order, if two elements have the same value, they are arranged in the order
         Charmander, Bulbasaur, Squirtle.
         :pre: List is not empty
@@ -134,7 +135,29 @@ class ArraySortedList(SortedList[T]):
         if self.is_empty():
             raise Exception("Sorted List is empty")
 
-        arr = []
-        for i in range(len(self)):
-            arr.append(self[i])
-
+        # adding all items from sorted list to arrays based on pokemon name
+        charm = []
+        bulb = []
+        squir = []
+        length = len(self)
+        for i in range(length):
+            if self[i].value.get_name() == 'Charmander':
+                charm.append(self[i])
+            elif self[i].value.get_name() == 'Bulbasaur':
+                bulb.append(self[i])
+            elif self[i].value.get_name() == 'Squirtle':
+                squir.append(self[i])
+        arr = charm + bulb + squir
+        # sorting arr in non-increasing order
+        for i in range(length):
+            current = arr[i]
+            j = current - 1
+            while j >= 0 and arr[j].key < current.key:
+                arr[j + 1] = arr[j]
+                j -= 1
+            arr[j+1] = current
+        # resetting sorted list
+        self.reset()
+        # adding items from arr to sorted list
+        for i in range(length):
+            self[i] = arr[i]
