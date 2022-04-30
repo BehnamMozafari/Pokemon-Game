@@ -8,6 +8,7 @@ __author__ = "Behnam Mozafari"
 from stack_adt import ArrayStack
 from queue_adt import CircularQueue
 from array_sorted_list import ArraySortedList
+from sorted_list import ListItem
 from pokemon import Charmander, Bulbasaur, Squirtle
 
 
@@ -29,11 +30,13 @@ class PokeTeam:
         :complexity:
         """
         battle_modes = [0, 1, 2]
-        possible_criterions = ['lvl', 'hp', 'atk', 'def', 'spd']
+        possible_criterion = [None, 'lvl', 'hp', 'atk', 'def', 'spd']
         if battle_mode not in battle_modes:
             raise ValueError("Invalid Battle Mode\n")
-        if criterion not in possible_criterions:
+        if criterion not in possible_criterion:
             raise ValueError("Invalid Criterion\n")
+
+        self.criterion = criterion
 
         self.battle_mode = battle_mode
         if self.battle_mode == 0:
@@ -91,7 +94,60 @@ class PokeTeam:
             for _ in range(squir):
                 squirtle = Squirtle()
                 self.team.append(squirtle)
+        elif self.criterion == 'lvl':
+            for _ in range(charm):
+                charmander = Charmander()
+                self.team.add(ListItem(charmander, charmander.get_level()))
+            for _ in range(bulb):
+                bulbasaur = Bulbasaur()
+                self.team.add(ListItem(bulbasaur, bulbasaur.get_level()))
+            for _ in range(squir):
+                squirtle = Squirtle()
+                self.team.add(ListItem(squirtle, squirtle.get_level()))
+        elif self.criterion == 'hp':
+            for _ in range(charm):
+                charmander = Charmander()
+                self.team.add(ListItem(charmander, charmander.get_hp()))
+            for _ in range(bulb):
+                bulbasaur = Bulbasaur()
+                self.team.add(ListItem(bulbasaur, bulbasaur.get_hp()))
+            for _ in range(squir):
+                squirtle = Squirtle()
+                self.team.add(ListItem(squirtle, squirtle.get_hp()))
+        elif self.criterion == 'atk':
+            for _ in range(charm):
+                charmander = Charmander()
+                self.team.add(ListItem(charmander, charmander.get_attack()))
+            for _ in range(bulb):
+                bulbasaur = Bulbasaur()
+                self.team.add(ListItem(bulbasaur, bulbasaur.get_attack()))
+            for _ in range(squir):
+                squirtle = Squirtle()
+                self.team.add(ListItem(squirtle, squirtle.get_attack()))
+        elif self.criterion == 'def':
+            for _ in range(charm):
+                charmander = Charmander()
+                self.team.add(ListItem(charmander, charmander.get_defence()))
+            for _ in range(bulb):
+                bulbasaur = Bulbasaur()
+                self.team.add(ListItem(bulbasaur, bulbasaur.get_defence()))
+            for _ in range(squir):
+                squirtle = Squirtle()
+                self.team.add(ListItem(squirtle, squirtle.get_defence()))
         else:
+            for _ in range(charm):
+                charmander = Charmander()
+                self.team.add(ListItem(charmander, charmander.get_speed()))
+            for _ in range(bulb):
+                bulbasaur = Bulbasaur()
+                self.team.add(ListItem(bulbasaur, bulbasaur.get_speed()))
+            for _ in range(squir):
+                squirtle = Squirtle()
+                self.team.add(ListItem(squirtle, squirtle.get_speed()))
+
+
+
+
 
 
     def __str__(self) -> str:

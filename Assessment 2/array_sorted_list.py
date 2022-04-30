@@ -124,3 +124,17 @@ class ArraySortedList(SortedList[T]):
                 return mid
 
         return low
+
+    def reorder(self) -> None:
+        """ sorts list in non-increasing order, if two elements have the same value, they are arranged in the order
+        Charmander, Bulbasaur, Squirtle.
+        :pre: List is not empty
+        :raises Exception: If the list is empty
+        """
+        if self.is_empty():
+            raise Exception("Sorted List is empty")
+
+        arr = []
+        for i in range(len(self)):
+            arr.append(self[i])
+
