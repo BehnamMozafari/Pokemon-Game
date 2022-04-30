@@ -114,11 +114,20 @@ class Battle():
             elif pokemon_1.get_speed() == pokemon_2.get_speed():
                 pokemon_2.damage_after_attacked(pokemon_1)
                 pokemon_1.damage_after_attacked(pokemon_2)
-                pokemon_1.decrease_hp()
-                pokemon_2.decrease_hp()
-                if pokemon_1.hp > 0:
+                if pokemon_1.get_hp > 0 and pokemon_2.get_hp > 0:
+                    pokemon_1.decrease_hp()
+                    pokemon_2.decrease_hp()
+                    if pokemon_1.hp > 0:
+                        self.team_1.team.append(pokemon_1)
+                    if pokemon_2.hp > 0:
+                        self.team_2.team.append(pokemon_2)
+                elif pokemon_1.get_hp <= 0 and pokemon_2.get_hp <= 0:
+                    pass
+                elif pokemon_1.get_hp <= 0:
+                    pokemon_1.update_level()
                     self.team_1.team.append(pokemon_1)
-                if pokemon_2.hp > 0:
+                elif pokemon_2.get_hp <= 0:
+                    pokemon_2.update_level()
                     self.team_2.team.append(pokemon_2)
 
         # If eventually both team is empty, print Draw to the console
