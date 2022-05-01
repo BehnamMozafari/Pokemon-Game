@@ -6,6 +6,7 @@ Defines the Battle class used to conduct pokemon battles.
 __author__ = "Behnam Mozafari, Zhongxun Pan, Nhu Nguyen"
 
 from poke_team import PokeTeam
+from pokemon_base import PokemonBase
 
 
 class Battle:
@@ -19,7 +20,7 @@ class Battle:
         self.team1.choose_team(self.battle_mode, criterion_team1)
         self.team2.choose_team(self.battle_mode, criterion_team2)
 
-    def pokemon_lvlup(self, pokemon, pokemon_team, dead_pokemon_index, dead_pokemon_team):
+    def pokemon_lvlup(self, pokemon: PokemonBase, pokemon_team: PokeTeam, dead_pokemon_index: int, dead_pokemon_team: PokeTeam):
         pokemon.update_level()
         if self.battle_mode == 0:
             pokemon_team.team.push(pokemon)
@@ -28,7 +29,7 @@ class Battle:
         else:
             dead_pokemon_team.team.delete_at_index(dead_pokemon_index)
 
-    def attack_defend(self, team1, pokemon_1, pokemon_1_index, team2, pokemon_2, pokemon_2_index):
+    def attack_defend(self, team1: PokeTeam, pokemon_1: PokemonBase, pokemon_1_index: int, team2: PokeTeam, pokemon_2: PokemonBase, pokemon_2_index: int):
         # pokemon_1 attacks pokemon_2
         # Calculate hp of pokemon_2 after attacked by pokemon_1
         pokemon_2.damage_after_attacked(pokemon_1)
@@ -125,23 +126,7 @@ class Battle:
 
     def set_mode_battle(self) -> str:
         """
-            this method which asks the user for input and sets up the
-            players’ teams in such an order where a pokemon fights until it faints. It is here where
-            you set the team’s battle mode to 0. This method should not take any arguments.
-            This method returns the name of the player that wins the battle, Draw otherwise
 
-            NOTE: The order of the Pokemon in this battle mode MUST be Charmanders ->
-            Bulbasaurs -> Squirtles
-
-
-            An example of a set mode battle would be the following:
-            Team 1: C1 C2 B1 B2 S1
-            Team 2: B1 B2 S1
-            Round 1: Team 1’s C1 faints Team 2’s B1
-            Round 2: Team 1’s C1 faints Team 2’s B2
-            Round 3: Team 1’s C1 is fainted by Team 2’s S1
-            Round 4: Team 1’s C2 is fainted by Team 2’s S1
-            Round 5: Team 1’s B1 faints Team 2’s S1
         """
         self.battle_mode = 0
         self.create_teams(None, None)

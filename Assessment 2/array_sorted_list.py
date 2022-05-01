@@ -132,6 +132,7 @@ class ArraySortedList(SortedList[T]):
         :pre: List is not empty
         :param criterion: criterion used to sort list
         :raises Exception: If the list is empty
+        :complexity:
         """
         if self.is_empty():
             raise Exception("Sorted List is empty")
