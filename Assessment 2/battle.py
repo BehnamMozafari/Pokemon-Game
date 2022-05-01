@@ -12,16 +12,24 @@ from pokemon_base import PokemonBase
 class Battle:
 
     def __init__(self, trainer_one_name: str, trainer_two_name: str) -> None:
-        """Best and worst complexity: O(1)"""
+        """__init__ method: initialises 2 teams
+        :complexity: Best and worst complexity of O(1)
+        """
         self.team1 = PokeTeam(trainer_one_name)
         self.team2 = PokeTeam(trainer_two_name)
         self.battle_mode = None
 
     def create_teams(self, criterion_team1: str = None, criterion_team2: str = None) -> None:
+        """ create_teams method: ask for the criterions for sorting list
+        :complexity: Best and worst complexity of O(1)
+        """
         self.team1.choose_team(self.battle_mode, criterion_team1)
         self.team2.choose_team(self.battle_mode, criterion_team2)
 
     def pokemon_lvlup(self, pokemon: PokemonBase, pokemon_team: PokeTeam, dead_pokemon_index: int, dead_pokemon_team: PokeTeam):
+        """ pokemon_lvlup method: level up the winning pokemon and return it to the team, otherwise delete pokemon
+        :complexity: Best and worst complexity of O(1)
+        """
         pokemon.update_level()
         if self.battle_mode == 0:
             pokemon_team.team.push(pokemon)
@@ -31,6 +39,8 @@ class Battle:
             dead_pokemon_team.team.delete_at_index(dead_pokemon_index)
 
     def attack_defend(self, team1: PokeTeam, pokemon_1: PokemonBase, pokemon_1_index: int, team2: PokeTeam, pokemon_2: PokemonBase, pokemon_2_index: int):
+        """attack_defend method: do some hp calculations and determined the fate of both pokemon when one pokemon attack the other
+        : complexity: best and worst of O(1)"""
         # pokemon_1 attacks pokemon_2
         # Calculate hp of pokemon_2 after attacked by pokemon_1
         pokemon_2.damage_after_attacked(pokemon_1)
@@ -59,6 +69,8 @@ class Battle:
                 self.pokemon_lvlup(pokemon_2, team2, pokemon_1_index, team1)
 
     def conduct_battle(self) -> str:
+        """conduct_battle method: check speed, and do the calculations
+         :complexity: best and worst case: O(1)"""
         # Check whether the length of both team1 and team2 is at least 1
         while self.team1.team.is_empty() is False and self.team2.team.is_empty() is False:
 
@@ -130,8 +142,9 @@ class Battle:
             return self.team1.team_name
 
     def set_mode_battle(self) -> str:
-        """
-
+        """ Task 3 requirements: using stack ADT
+            set_mode_battle method call create_teams method and conduct_battle method
+            :complexity: best and worst case: O(1)
         """
         self.battle_mode = 0
         self.create_teams(None, None)
@@ -140,6 +153,10 @@ class Battle:
 
     # Task 4: Using ADT Circular Queue for combat
     def rotating_mode_battle(self) -> str:
+        """ Task 4 requirements: using queue ADT
+            rotating_mode_battle method call create_teams method and conduct_battle method
+            :complexity: best and worst case: O(1)
+        """
         # setting battle mode
         self.battle_mode = 1
         self.create_teams(None, None)
@@ -147,6 +164,10 @@ class Battle:
         return self.conduct_battle()
 
     def optimised_mode_battle(self, criterion_team1: str, criterion_team2: str) -> str:
+        """ Task 5 requirements: using sortedList ADT
+            optimised_mode_battle method call create_teams method and conduct_battle method
+            :complexity: best and worst case: O(1)
+        """
         # set battle mode, create 2 teams
         self.battle_mode = 2
         self.create_teams(criterion_team1, criterion_team2)
@@ -154,6 +175,4 @@ class Battle:
         return self.conduct_battle()
 
 
-if __name__ == '__main__':
-    x = Battle("AB", "CD");
-    print(x.rotating_mode_battle())
+

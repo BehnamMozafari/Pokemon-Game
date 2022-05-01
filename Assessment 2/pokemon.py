@@ -12,21 +12,21 @@ from pokemon_base import PokemonBase
 
 
 class Charmander(PokemonBase):
-    """Charmander type effectiveness"""
-    """Best and worst complexity: O(1)"""
+    """Charmander type effectiveness
+    :complexity: Best and worst complexity: O(1)"""
     EFFECTIVENESS_FIRE = 1
     EFFECTIVENESS_WATER = 0.5
     EFFECTIVENESS_GRASS = 2
 
     def __init__(self) -> None:
-        """Initialises the base attributes"""
-        """Best and worst complexity: O(1)"""
+        """Initialises the base attributes
+        :complexity: Best and worst complexity: O(1)"""
         PokemonBase.__init__(self, 7, 1, "fire")
         self.battled = 0
 
     def get_battled(self):
-        """get_battled method returned whether a Pokemon has combat or not"""
-        """Best and worst complexity: O(1)"""
+        """ get_battled method returned whether a Pokemon has combat or not
+    :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
     def update_battled(self):
