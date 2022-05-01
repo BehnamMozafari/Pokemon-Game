@@ -80,15 +80,17 @@ class PokemonBase(ABC):
 
     """Attack calculation based on poke type"""
     def attack_calculation(self, another_pokemon):
-        if self.get_poke_type() == "water":
+        if self.poke_type == "water":
             water_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_WATER
             return water_damage 
-        if self.get_poke_type() == "fire":
+        elif self.poke_type == "fire":
             fire_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_FIRE
             return fire_damage
-        if self.get_poke_type() == "grass":
+        elif self.poke_type == "grass":
             grass_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_GRASS
             return grass_damage
+        elif self.poke_type == "":
+            return another_pokemon.get_attack()
 
 
 

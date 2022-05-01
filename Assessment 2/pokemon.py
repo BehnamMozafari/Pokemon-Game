@@ -75,7 +75,7 @@ class Bulbasaur(PokemonBase):
     # Bulbasaur calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence() + 5:
+        if damage > (self.get_defence() + 5):
             self.hp -= damage
         else:
             self.hp -= damage // 2
@@ -112,7 +112,7 @@ class Squirtle(PokemonBase):
 
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence() * 2:
+        if damage > (self.get_defence() * 2):
             self.hp -= damage
         else:
             self.hp -= damage // 2
