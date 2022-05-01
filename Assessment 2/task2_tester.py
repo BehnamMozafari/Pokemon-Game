@@ -33,10 +33,6 @@ class TestTask2(TesterBase):
         except AssertionError:
             self.verificationErrors.append(f"PokeTeam does not handle limit correctly. {str(team)}")
 
-    ### ADD TESTS HERE
-
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestTask2)
     unittest.TextTestRunner(verbosity=0).run(suite)
-
-

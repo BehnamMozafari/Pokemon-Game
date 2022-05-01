@@ -24,8 +24,6 @@ class TestTask3(TesterBase):
         except AssertionError:
             self.verificationErrors.append(f"Misty should win: {result}.")
 
-    ### ADD TESTS HERE
-
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestTask3)
     unittest.TextTestRunner(verbosity=0).run(suite)
