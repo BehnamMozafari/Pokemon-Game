@@ -143,7 +143,13 @@ class ArraySortedList(SortedList[T]):
         squir = []
         miss = []
         length = len(self)
+        num_battled = 0
+        missingno_in_team = 0
         for i in range(length):
+            # checking if all pokemon have battled
+            if not self[i].value.get_name() == 'MissingNo':
+                num_battled += self[i].value.get_battled()
+
             if criterion == 'lvl':
                 self[i].key = self[i].value.get_level()
             elif criterion == 'hp':
@@ -161,8 +167,14 @@ class ArraySortedList(SortedList[T]):
                 bulb.append(self[i])
             elif self[i].value.get_name() == 'Squirtle':
                 squir.append(self[i])
-            elif self[i].value.get_name() == 'MissingNo':
-                miss.append(self[i])
+        # adding missingno
+        if missingno_in_team:
+            for i in range(length):
+                if self[i].value.get_name() == 'MissingNo':
+                    if num_battled != length - 1:
+                        self[i].key = 1
+                    miss.append(self[i])
+        # create arr
         arr = miss + squir + bulb + charm
         # sorting arr in non-decreasing order
         for i in range(1, length):

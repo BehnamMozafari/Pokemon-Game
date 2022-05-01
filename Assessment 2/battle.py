@@ -74,6 +74,10 @@ class Battle:
                 pokemon_1 = self.team1.team[pokemon_1_index].value
                 pokemon_2 = self.team2.team[pokemon_2_index].value
 
+            # Update battled
+            pokemon_1.update_battled()
+            pokemon_2.update_battled()
+
             # First check condition whether speed of pokemon_1 is larger than speed of pokemon_2
             if pokemon_1.get_speed() > pokemon_2.get_speed():
                 self.attack_defend(self.team1, pokemon_1, pokemon_1_index, self.team2, pokemon_2, pokemon_2_index)

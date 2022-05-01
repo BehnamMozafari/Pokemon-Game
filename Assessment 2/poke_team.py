@@ -10,6 +10,7 @@ from queue_adt import CircularQueue
 from array_sorted_list import ArraySortedList
 from sorted_list import ListItem
 from pokemon import Charmander, Bulbasaur, Squirtle
+from GlitchMon import MissingNo
 
 
 class PokeTeam:
@@ -25,7 +26,7 @@ class PokeTeam:
     def choose_team(self, battle_mode: int, criterion: str = None) -> None:
         """ Initialises team ADT, Asks for user to input team, calls assign_team method
         :param battle_mode: the desired battle mode, either 0, 1 or 2
-        :param  criterion: attribute used to order team in Optimised Mode Battle
+        :param criterion: attribute used to order team in Optimised Mode Battle
         :raises ValueError: if battle_mode is not 0, 1 or 2, or if criterion is not 'lvl', 'hp', 'atk', 'def' or 'spd'
         :complexity:
         """
@@ -55,26 +56,34 @@ class PokeTeam:
                 charm = int(team_input[0])
                 bulb = int(team_input[1])
                 squir = int(team_input[2])
-                self.assign_team(charm, bulb, squir)
+                miss = int(team_input[3])
+                self.assign_team(charm, bulb, squir, miss)
             except ValueError:
                 print("Please enter a valid team\n")
             else:
                 correct_input = True
 
-    def assign_team(self, charm: int, bulb: int, squir: int) -> None:
+    def assign_team(self, charm: int, bulb: int, squir: int, miss: int) -> None:
         """ Populating the team based on the battle mode
         :param charm: number of Charmanders
         :param bulb: number of Bulbasaurs
         :param squir: number of Squirtles
-        :raises ValueError: if total number of Pokemon is greater than the limit or if a negative number is input
+        :param miss: number of MissingNos
+        :raises ValueError: if total number of Pokemon is greater than the limit or if a negative number is input or if
+        too many MissingNo
         :complexity:
         """
-        if charm + bulb + squir > self.limit:
+        if charm + bulb + squir + miss> self.limit:
             raise ValueError("Number of Pokemon exceeds limit\n")
         if charm < 0 or bulb < 0 or squir < 0:
             raise ValueError("Number of Pokemon cannot be negative\n")
+        if miss > 1:
+            raise ValueError("Too many MissingNo\n")
 
         if self.battle_mode == 0:
+            for _ in range(miss):
+                missingno = MissingNo()
+                self.team.push(missingno)
             for _ in range(squir):
                 squirtle = Squirtle()
                 self.team.push(squirtle)
@@ -94,6 +103,9 @@ class PokeTeam:
             for _ in range(squir):
                 squirtle = Squirtle()
                 self.team.append(squirtle)
+            for _ in range(miss):
+                missingno = MissingNo()
+                self.team.append(missingno)
         elif self.battle_mode == 2:
             if self.criterion == 'lvl':
                 for _ in range(charm):
@@ -105,6 +117,8 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_level()))
+                for _ in range(miss):
+                    missingno = MissingNo()
             elif self.criterion == 'hp':
                 for _ in range(charm):
                     charmander = Charmander()

@@ -77,6 +77,12 @@ class Bulbasaur(PokemonBase):
         PokemonBase.__init__(self, 9, 1, "grass")
         self.battled = 0
 
+    def get_battled(self):
+        return self.battled
+
+    def update_battled(self):
+        self.battled = 1
+
     # Bulbasaur name getter
     def get_name(self):
         return "Bulbasaur"
@@ -125,6 +131,12 @@ class Squirtle(PokemonBase):
     def __init__(self) -> None:
         PokemonBase.__init__(self, 8, 1, "water")
         self.battled = 0
+
+    def get_battled(self):
+        return self.battled
+
+    def update_battled(self):
+        self.battled = 1
 
     def get_name(self):
         return "Squirtle"
