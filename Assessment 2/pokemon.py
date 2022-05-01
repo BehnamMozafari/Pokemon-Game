@@ -24,42 +24,42 @@ class Charmander(PokemonBase):
         PokemonBase.__init__(self, 7, 1, "fire")
         self.battled = 0
 
-    def get_battled(self):
+    def get_battled(self) -> int:
         """ get_battled method returned whether a Pokemon has combat or not
         :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
-    def update_battled(self):
+    def update_battled(self) -> None:
         """  update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
         :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
     # Charmander name getter
-    def get_name(self):
+    def get_name(self) -> str:
         """ get_name method return the name of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return "Charmander"
 
     # Charmander speed getter
-    def get_speed(self):
+    def get_speed(self) -> int:
         """get_speed method return the speed of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 7 + self.level
 
     # Charmander attack getter
-    def get_attack(self):
+    def get_attack(self) -> int:
         """get_attack method return the attack of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 6 + self.level
 
     # Charmander defence getter
-    def get_defence(self):
+    def get_defence(self) -> int:
         """ get_defence method returns the defence of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 7
 
     # Charmander calculate damage after attack
-    def damage_after_attacked(self, another_pokemon: PokemonBase):
+    def damage_after_attacked(self, another_pokemon: PokemonBase) -> int:
         """ Function calculates damage after attack from the opposing pokemon
         :param self: the pokemon itself (fire type)
         :param another_pokemon: the opposing pokemon of type PokemonBase
@@ -95,42 +95,42 @@ class Bulbasaur(PokemonBase):
         PokemonBase.__init__(self, 9, 1, "grass")
         self.battled = 0
 
-    def get_battled(self):
+    def get_battled(self) -> int:
         """get_battled method returned whether a Pokemon has combat or not
         :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
-    def update_battled(self):
+    def update_battled(self) -> None:
         """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
         :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
     # Bulbasaur name getter
-    def get_name(self):
+    def get_name(self) -> str:
         """get_name method return the name of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return "Bulbasaur"
 
     # Bulbasaur speed getter
-    def get_speed(self):
+    def get_speed(self) -> int:
         """get_speed method return the speed of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 7 + self.level // 2
 
     # Bulbasaur attack getter
-    def get_attack(self):
+    def get_attack(self) -> int:
         """get_attack method return the attack of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 5
 
     # Bulbasaur defence getter
-    def get_defence(self):
+    def get_defence(self) -> int:
         """get_defence method returns the defence of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 5
 
     # Bulbasaur calculate damage after attack
-    def damage_after_attacked(self, another_pokemon: PokemonBase):
+    def damage_after_attacked(self, another_pokemon: PokemonBase) -> int:
         """ Function calculates damage after attack from the opposing pokemon
         :param self: the pokemon itself (grass type)
         :param another_pokemon: the opposing pokemon of type PokemonBase
@@ -165,37 +165,37 @@ class Squirtle(PokemonBase):
         PokemonBase.__init__(self, 8, 1, "water")
         self.battled = 0
 
-    def get_battled(self):
+    def get_battled(self) -> int:
         """get_battled method returned whether a Pokemon has combat or not
         :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
-    def update_battled(self):
+    def update_battled(self) -> None:
         """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
         :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
-    def get_name(self):
+    def get_name(self) -> str:
         """get_name method return the name of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return "Squirtle"
 
-    def get_speed(self):
+    def get_speed(self) -> int:
         """get_speed method return the speed of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 7
 
-    def get_attack(self):
+    def get_attack(self) -> int:
         """get_attack method return the attack of the pokemon
         :complexity: Best and worst complexity: O(1)"""
         return 4 + self.level // 2
 
-    def get_defence(self):
+    def get_defence(self) -> int:
         """get_defence method returns the defence of the pokemon
             :complexity: Best and worst complexity: O(1)"""
         return 6 + self.level
 
-    def damage_after_attacked(self, another_pokemon: PokemonBase):
+    def damage_after_attacked(self, another_pokemon: PokemonBase) -> int:
         """ Function calculates damage after attack from the opposing pokemon
         :param self: the pokemon itself (water type)
         :param another_pokemon: the opposing pokemon of type PokemonBase

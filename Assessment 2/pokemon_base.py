@@ -38,49 +38,49 @@ class PokemonBase(ABC):
 
     """ Hp getter
         :complexity: best and worst case complexity of O(1)"""    
-    def get_hp(self):
+    def get_hp(self) -> int:
         return int(self.hp)
 
     """ Hp setter
         :complexity: best and worst case complexity of O(1)"""
-    def set_hp(self, hp):
+    def set_hp(self, hp) -> None:
         self.hp = hp
 
     """ Level getter 
         :complexity: best and worst case complexity of O(1)"""
-    def get_level(self):
+    def get_level(self) -> int:
         return self.level
 
     """ Level setter
         :complexity: best and worst case complexity of O(1)"""
-    def update_level(self):
+    def update_level(self) -> None:
         self.level += 1
 
     """ Decrease hp by 1 function. 
         :complexity: best and worst case complexity of O(1)"""
-    def decrease_hp(self):
+    def decrease_hp(self) -> None:
         self.hp -= 1
 
 
     # Abstract method for name, speed, attack, defend, damage_after_attack
     @abstractmethod
-    def get_name(self):
+    def get_name(self) -> str:
         pass
 
     @abstractmethod
-    def get_speed(self):
+    def get_speed(self) -> int:
         pass
 
     @abstractmethod
-    def get_attack(self):
+    def get_attack(self) -> int:
         pass
 
     @abstractmethod
-    def get_defence(self):
+    def get_defence(self) -> int:
         pass
 
     @abstractmethod
-    def damage_after_attacked(self, Pokemonbase): 
+    def damage_after_attacked(self, Pokemonbase) -> int:
         pass
 
     @abstractmethod
