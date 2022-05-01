@@ -15,7 +15,7 @@ from GlitchMon import MissingNo
 
 class PokeTeam:
     """ Class for assembling a team of Pokemon. """
-
+    """Best and worst complexity: O(1)"""
     def __init__(self, team_name: str) -> None:
         self.team = None
         self.team_name = team_name
@@ -28,7 +28,7 @@ class PokeTeam:
         :param battle_mode: the desired battle mode, either 0, 1 or 2
         :param criterion: attribute used to order team in Optimised Mode Battle
         :raises ValueError: if battle_mode is not 0, 1 or 2, or if criterion is not 'lvl', 'hp', 'atk', 'def' or 'spd'
-        :complexity:
+        :Best and worst complexity: O(1)
         """
         battle_modes = [0, 1, 2]
         possible_criterion = [None, 'lvl', 'hp', 'atk', 'def', 'spd']
@@ -71,7 +71,8 @@ class PokeTeam:
         :param miss: number of MissingNos
         :raises ValueError: if total number of Pokemon is greater than the limit or if a negative number is input or if
         too many MissingNo
-        :complexity:
+        :complexity: Despite there are for loops, there is a max constant on how many pokemons there are in a team
+        Hemce, best and worst case complexity for assign_team function is O(1)
         """
         if charm + bulb + squir + miss> self.limit:
             raise ValueError("Number of Pokemon exceeds limit\n")
@@ -163,6 +164,8 @@ class PokeTeam:
 
     def __str__(self) -> str:
         """ String representation of PokeTeam
+        Best case: O(1) where range(team_length) = 0
+        Worst case: O(n) other cases
         """
         output = ""
         team_length = len(self.team)

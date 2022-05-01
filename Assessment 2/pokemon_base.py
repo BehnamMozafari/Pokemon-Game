@@ -15,8 +15,9 @@ class PokemonBase(ABC):
     hp: int = 0 
     level: int = 1
 
-    """Raise exception if hp is negative or level is less than equal 0"""
+    """Raise exception if hp is negative or level is less than equal 0."""
     def __init__(self, hp: int, level: int, poke_type: str) -> None:
+        """Best and worst complexity: O(1)"""
         if hp < 0:
             raise ValueError("hp should not be negative")
         if level < 1:
@@ -27,27 +28,29 @@ class PokemonBase(ABC):
 
     """Check if hp is greater equal to 0"""
     def lose_hp(self, lost_hp: int) -> None:
+        """Best and worst complexity: O(1)"""
         if lost_hp >= 0:
             self.hp = self.hp - lost_hp
         else:
             raise ValueError("ValueError exception thrown")
 
-    """hp getter"""
+    """hp getter. Best and worst complexity: O(1)"""
     def get_hp(self):
         return int(self.hp)
-    """hp setter"""
+
+    """hp setter. Best and worst complexity: O(1)"""
     def set_hp(self, hp):
         self.hp = hp
 
-    """level getter"""
+    """level getter. Best and worst complexity: O(1)"""
     def get_level(self):
         return self.level
 
-    """level setter"""
+    """level setter. Best and worst complexity: O(1)"""
     def update_level(self):
         self.level += 1
 
-    """decrease hp by 1 function"""
+    """decrease hp by 1 function. Best and worst complexity: O(1)"""
     def decrease_hp(self):
         self.hp -= 1
 
@@ -80,6 +83,7 @@ class PokemonBase(ABC):
 
     """Attack calculation based on poke type"""
     def attack_calculation(self, another_pokemon):
+        """Best and worst complexity: O(1)"""
         if self.poke_type == "water":
             water_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_WATER
             return water_damage 

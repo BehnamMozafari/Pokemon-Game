@@ -12,6 +12,7 @@ from pokemon_base import PokemonBase
 class Battle:
 
     def __init__(self, trainer_one_name: str, trainer_two_name: str) -> None:
+        """Best and worst complexity: O(1)"""
         self.team1 = PokeTeam(trainer_one_name)
         self.team2 = PokeTeam(trainer_two_name)
         self.battle_mode = None
