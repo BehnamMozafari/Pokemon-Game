@@ -1,10 +1,10 @@
-__author__ = "Nhu Nguyen"
-
-""" Pokemon.py implementation:  
+""" Pokemon.py implementation:
 
 Personalises attributes for Charmander, Bulbasaur, Squirtle class 
 
 """
+
+__author__ = "Nhu Nguyen"
 
 from pokemon_base import PokemonBase
 

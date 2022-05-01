@@ -2,6 +2,7 @@
 
 Defines the Battle class used to conduct pokemon battles.
 """
+
 __author__ = "Behnam Mozafari, Zhongxun Pan, Nhu Nguyen"
 
 import random
