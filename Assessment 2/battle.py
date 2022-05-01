@@ -58,6 +58,9 @@ class Battle():
         elif self.team_2.team.__len__() >= 1 and self.team_1.team.__len__() == 0:
             return self.team_2.team_name
 
+
+
+
     # Task 4: Using ADT Circular Queue for combat
     def rotating_mode_battle(self) -> str:
         # Create 2 teams, ask for their team names
@@ -85,13 +88,25 @@ class Battle():
 
                 # If pokemon_2 is alive after the attack, both pokemon's hp is decreased by 1. Whichever pokemon is
                 # alive after the decrease, get sent back to the end of the array or deleted if hp less than equal 0
+                #  ~~~
                 elif pokemon_2.get_hp() > 0:
-                    pokemon_1.decrease_hp()
-                    pokemon_2.decrease_hp()
-                    if pokemon_1.hp > 0:
+                    pokemon_1.damage_after_attacked(pokemon_2)
+                    if pokemon_1.get_hp() > 0 and pokemon_2.get_hp() > 0:
+                        pokemon_1.decrease_hp()
+                        pokemon_2.decrease_hp()
+                        if pokemon_1.get_hp() > 0:
+                            self.team_1.team.append(pokemon_1)
+                        if pokemon_2.get_hp() > 0:
+                            self.team_2.team.append(pokemon_2)
+                    elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() <= 0:
+                        pass
+                    elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() > 0:
+                        pokemon_1.update_level()
                         self.team_1.team.append(pokemon_1)
-                    if pokemon_2.hp > 0:
+                    elif pokemon_2.get_hp() <= 0 and pokemon_1.get_hp() > 0:
+                        pokemon_2.update_level()
                         self.team_2.team.append(pokemon_2)
+
 
             # Second check condition whether speed of pokemon_2 is larger than speed of pokemon_1:
             elif pokemon_1.get_speed() < pokemon_2.get_speed():
@@ -107,12 +122,22 @@ class Battle():
                 # If pokemon_1 is alive after the attack, both pokemon's hp is decreased by 1. Whichever pokemon is
                 # alive after the decrease, get sent back to the end of the array or deleted if hp <= 0
                 elif pokemon_1.get_hp() > 0:
-                    pokemon_2.decrease_hp()
-                    pokemon_1.decrease_hp()
-                    if pokemon_2.get_hp() > 0:
-                        self.team_2.team.append(pokemon_2)
-                    if pokemon_1.get_hp() > 0:
+                    pokemon_2.damage_after_attacked(pokemon_1)
+                    if pokemon_1.get_hp() > 0 and pokemon_2.get_hp() > 0:
+                        pokemon_1.decrease_hp()
+                        pokemon_2.decrease_hp()
+                        if pokemon_1.get_hp() > 0:
+                            self.team_1.team.append(pokemon_1)
+                        if pokemon_2.get_hp() > 0:
+                            self.team_2.team.append(pokemon_2)
+                    elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() <= 0:
+                        pass
+                    elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() > 0:
+                        pokemon_1.update_level()
                         self.team_1.team.append(pokemon_1)
+                    elif pokemon_2.get_hp() <= 0 and pokemon_1.get_hp() > 0:
+                        pokemon_2.update_level()
+                        self.team_2.team.append(pokemon_2)
 
             # Third check condition: if the speed of pokemon_1 and pokemon_2 equals, calculate the hp after attack
             # Each pokemon hp is decreased by 1 if they both alive
