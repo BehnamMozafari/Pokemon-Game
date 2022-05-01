@@ -145,7 +145,7 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_speed()))
-            self.team.poke_reorder()
+            self.team.poke_reorder(self.criterion)
 
     def __str__(self) -> str:
         """ String representation of PokeTeam

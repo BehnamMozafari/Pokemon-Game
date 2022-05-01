@@ -126,30 +126,42 @@ class ArraySortedList(SortedList[T]):
 
         return low
 
-    def poke_reorder(self) -> None:
-        """ sorts list in non-increasing order, if two elements have the same value, they are arranged in the order
+    def poke_reorder(self, criterion: str) -> None:
+        """sorts list in non-increasing order, if two elements have the same value, they are arranged in the order
         Charmander, Bulbasaur, Squirtle.
         :pre: List is not empty
+        :param criterion: criterion used to sort list
         :raises Exception: If the list is empty
         """
         if self.is_empty():
             raise Exception("Sorted List is empty")
 
-        # adding all items from sorted list to arrays based on pokemon name
+        # adding all items from sorted list to arrays based on pokemon name, updating key
         charm = []
         bulb = []
         squir = []
         length = len(self)
         for i in range(length):
+            if criterion == 'lvl':
+                self[i].key = self[i].value.get_level()
+            elif criterion == 'hp':
+                self[i].key = self[i].value.get_hp()
+            elif criterion == 'atk':
+                self[i].key = self[i].value.get_attack()
+            elif criterion == 'def':
+                self[i].key = self[i].value.get_defence()
+            elif criterion == 'spd':
+                self[i].key = self[i].value.get_speed()
+
             if self[i].value.get_name() == 'Charmander':
                 charm.append(self[i])
             elif self[i].value.get_name() == 'Bulbasaur':
                 bulb.append(self[i])
             elif self[i].value.get_name() == 'Squirtle':
                 squir.append(self[i])
-        arr = charm + bulb + squir
+        arr = squir + bulb + charm
         # sorting arr in non-decreasing order
-        for i in range(length):
+        for i in range(1, length):
             current = arr[i]
             j = i - 1
             while j >= 0 and arr[j].key > current.key:
@@ -160,9 +172,6 @@ class ArraySortedList(SortedList[T]):
         for i in range(length):
             self.delete_at_index(0)
         # # adding items from arr to sorted list
-        # for i in range(length):
-        #     self.array[i] = arr[i]
-        #     self.length += 1
         for i in range(length):
-            self.__setitem__(i, arr[i])
+            self.array[i] = arr[i]
             self.length += 1

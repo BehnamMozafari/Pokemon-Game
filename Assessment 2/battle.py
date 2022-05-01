@@ -92,8 +92,12 @@ class Battle:
                     pokemon_1.decrease_hp()
                     pokemon_2.decrease_hp()
                     if pokemon_1.get_hp() > 0 and pokemon_2.get_hp() > 0:
-                        self.team1.team.append(pokemon_1)
-                        self.team2.team.append(pokemon_2)
+                        if self.battle_mode == 0:
+                            self.team1.team.push(pokemon_1)
+                            self.team2.team.push(pokemon_2)
+                        elif self.battle_mode == 1:
+                            self.team1.team.append(pokemon_1)
+                            self.team2.team.append(pokemon_2)
                     elif pokemon_2.get_hp() > 0:
                         self.pokemon_lvlup(pokemon_2, self.team2, pokemon_1_index, self.team1)
                     elif pokemon_1.get_hp() > 0:
@@ -102,6 +106,12 @@ class Battle:
                     self.pokemon_lvlup(pokemon_2, self.team2, pokemon_1_index, self.team1)
                 elif pokemon_1.get_hp() > 0:
                     self.pokemon_lvlup(pokemon_1, self.team1, pokemon_2_index, self.team2)
+            # reorder teams for optimised battle mode
+            if self.battle_mode == 2:
+                if not self.team1.team.is_empty():
+                    self.team1.team.poke_reorder(self.team1.criterion)
+                if not self.team2.team.is_empty():
+                    self.team2.team.poke_reorder(self.team2.criterion)
 
         # If eventually both team is empty, print Draw to the console
         if self.team1.team.is_empty() == True and self.team2.team.is_empty() == True:
