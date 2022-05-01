@@ -26,8 +26,12 @@ class Battle:
         self.team1.choose_team(self.battle_mode, criterion_team1)
         self.team2.choose_team(self.battle_mode, criterion_team2)
 
-    def pokemon_lvlup(self, pokemon: PokemonBase, pokemon_team: PokeTeam, dead_pokemon_index: int, dead_pokemon_team: PokeTeam):
-        """ pokemon_lvlup method: level up the winning pokemon and return it to the team, otherwise delete pokemon
+    def pokemon_lvlup(self, pokemon: PokemonBase, pokemon_team: PokeTeam, dead_pokemon_index: int, dead_pokemon_team: PokeTeam) -> None:
+        """pokemon_lvlup method: level up the winning pokemon and return it to the team, otherwise delete pokemon
+        :param pokemon: pokemon to level up
+        :param pokemon_team: team of pokemon to level up
+        :param dead_pokemon_index: index of dead pokemon in sorted list
+        :param dead_pokemon_team: team of dead pokemon
         :complexity: Best and worst complexity of O(1)
         """
         pokemon.update_level()
@@ -38,9 +42,16 @@ class Battle:
         else:
             dead_pokemon_team.team.delete_at_index(dead_pokemon_index)
 
-    def attack_defend(self, team1: PokeTeam, pokemon_1: PokemonBase, pokemon_1_index: int, team2: PokeTeam, pokemon_2: PokemonBase, pokemon_2_index: int):
-        """attack_defend method: do some hp calculations and determined the fate of both pokemon when one pokemon attack the other
-        : complexity: best and worst of O(1)"""
+    def attack_defend(self, team1: PokeTeam, pokemon_1: PokemonBase, pokemon_1_index: int, team2: PokeTeam, pokemon_2: PokemonBase, pokemon_2_index: int) -> None:
+        """attack_defend method: do some hp calculations and determined the fate of both pokemon when pokemon_1 attack pokemon_2, calls pokemon_lvlup method
+        :param pokemon_1: attacking pokemon
+        :param team1: team of attacking pokemon
+        :param pokemon_1_index: index of attacking pokemon
+        :param pokemon_2: defending pokemon
+        :param team2: team of defending pokemon
+        :param pokemon_2_index: index of defending pokemon
+        :complexity: best and worst of O(1
+        """
         # pokemon_1 attacks pokemon_2
         # Calculate hp of pokemon_2 after attacked by pokemon_1
         pokemon_2.damage_after_attacked(pokemon_1)
@@ -69,8 +80,9 @@ class Battle:
                 self.pokemon_lvlup(pokemon_2, team2, pokemon_1_index, team1)
 
     def conduct_battle(self) -> str:
-        """conduct_battle method: check speed, and do the calculations
-         :complexity: best and worst case: O(1)"""
+        """conduct_battle method: check length of teams, check speed, calls attack_defend method and pokemon_lvlup method
+        :complexity: best and worst case: O(1)
+        """
         # Check whether the length of both team1 and team2 is at least 1
         while self.team1.team.is_empty() is False and self.team2.team.is_empty() is False:
 
@@ -165,8 +177,10 @@ class Battle:
 
     def optimised_mode_battle(self, criterion_team1: str, criterion_team2: str) -> str:
         """ Task 5 requirements: using sortedList ADT
-            optimised_mode_battle method call create_teams method and conduct_battle method
-            :complexity: best and worst case: O(1)
+        optimised_mode_battle method call create_teams method and conduct_battle method
+        :param criterion_team1: chosen criterion for team 1
+        :param criterion_team2: chosen criterion for team 2
+        :complexity: best and worst case: O(1)
         """
         # set battle mode, create 2 teams
         self.battle_mode = 2
