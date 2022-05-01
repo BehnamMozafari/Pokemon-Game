@@ -14,8 +14,8 @@ from GlitchMon import MissingNo
 
 
 class PokeTeam:
-    """ Class for assembling a team of Pokemon. """
-    """Best and worst complexity: O(1)"""
+    """ Class for assembling a team of Pokemon.
+        :complexity: Best and worst complexity: O(1)"""
     def __init__(self, team_name: str) -> None:
         self.team = None
         self.team_name = team_name
@@ -178,7 +178,7 @@ class PokeTeam:
     def __str__(self) -> str:
         """ String representation of PokeTeam
         Best case: O(1) where range(team_length) = 0
-        Worst case: O(n) other cases
+        Worst case: O(n) where n is the length of self.team
         """
         output = ""
         team_length = len(self.team)

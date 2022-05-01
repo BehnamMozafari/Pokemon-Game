@@ -26,36 +26,36 @@ class Charmander(PokemonBase):
 
     def get_battled(self):
         """ get_battled method returned whether a Pokemon has combat or not
-    :complexity: Best and worst complexity: O(1)"""
+        :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
     def update_battled(self):
-        """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight"""
-        """Best and worst complexity: O(1)"""
+        """  update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
+        :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
     # Charmander name getter
     def get_name(self):
-        """get_name method return the name of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """ get_name method return the name of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return "Charmander"
 
     # Charmander speed getter
     def get_speed(self):
-        """get_speed method return the speed of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_speed method return the speed of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 7 + self.level
 
     # Charmander attack getter
     def get_attack(self):
-        """get_attack method return the attack of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_attack method return the attack of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 6 + self.level
 
     # Charmander defence getter
     def get_defence(self):
-        """get_defence method returns the defence of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """ get_defence method returns the defence of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 7
 
     # Charmander calculate damage after attack
@@ -73,8 +73,8 @@ class Charmander(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        """String statement returns Charmander HP and its level"""
-        """Best and worst complexity: O(1)"""
+        """String statement returns Charmander HP and its level
+        :complexity: Best and worst complexity: O(1)"""
         return "Charmander's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
@@ -83,50 +83,50 @@ class Charmander(PokemonBase):
 
 
 class Bulbasaur(PokemonBase):
-    """Bulbasaur type effectiveness"""
-    """Best and worst complexity: O(1)"""
+    """Bulbasaur type effectiveness
+    :complexity: Best and worst complexity: O(1)"""
     EFFECTIVENESS_FIRE = 0.5
     EFFECTIVENESS_WATER = 2
     EFFECTIVENESS_GRASS = 1
 
     def __init__(self) -> None:
-        """Initialises the base attributes"""
-        """Best and worst complexity: O(1)"""
+        """Initialises the base attributes
+        :complexity: Best and worst complexity: O(1)"""
         PokemonBase.__init__(self, 9, 1, "grass")
         self.battled = 0
 
     def get_battled(self):
-        """get_battled method returned whether a Pokemon has combat or not"""
-        """Best and worst complexity: O(1)"""
+        """get_battled method returned whether a Pokemon has combat or not
+        :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
     def update_battled(self):
-        """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight"""
-        """Best and worst complexity: O(1)"""
+        """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
+        :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
     # Bulbasaur name getter
     def get_name(self):
-        """get_name method return the name of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_name method return the name of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return "Bulbasaur"
 
     # Bulbasaur speed getter
     def get_speed(self):
-        """get_speed method return the speed of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_speed method return the speed of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 7 + self.level // 2
 
     # Bulbasaur attack getter
     def get_attack(self):
-        """get_attack method return the attack of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_attack method return the attack of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 5
 
     # Bulbasaur defence getter
     def get_defence(self):
-        """get_defence method returns the defence of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_defence method returns the defence of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 5
 
     # Bulbasaur calculate damage after attack
@@ -144,8 +144,8 @@ class Bulbasaur(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        """String statement returns Bulbasaur HP and its level"""
-        """Best and worst complexity: O(1)"""
+        """String statement returns Bulbasaur HP and its level:
+        :complexity: Best and worst complexity: O(1)"""
         return "Bulbasaur's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
@@ -153,8 +153,8 @@ class Bulbasaur(PokemonBase):
 
 
 class Squirtle(PokemonBase):
-    """Squirtle type effectiveness"""
-    """Best and worst complexity: O(1)"""
+    """Squirtle type effectiveness
+    :complexity: Best and worst complexity: O(1)"""
     EFFECTIVENESS_FIRE = 2
     EFFECTIVENESS_WATER = 1
     EFFECTIVENESS_GRASS = 0.5
@@ -166,33 +166,33 @@ class Squirtle(PokemonBase):
         self.battled = 0
 
     def get_battled(self):
-        """get_battled method returned whether a Pokemon has combat or not"""
-        """Best and worst complexity: O(1)"""
+        """get_battled method returned whether a Pokemon has combat or not
+        :complexity: Best and worst complexity: O(1)"""
         return self.battled
 
     def update_battled(self):
-        """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight"""
-        """Best and worst complexity: O(1)"""
+        """update_battled method update the setting battled_mode to 1 if a pokemon has engaged in a fight
+        :complexity: Best and worst complexity: O(1)"""
         self.battled = 1
 
     def get_name(self):
-        """get_name method return the name of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_name method return the name of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return "Squirtle"
 
     def get_speed(self):
-        """get_speed method return the speed of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_speed method return the speed of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 7
 
     def get_attack(self):
-        """get_attack method return the attack of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_attack method return the attack of the pokemon
+        :complexity: Best and worst complexity: O(1)"""
         return 4 + self.level // 2
 
     def get_defence(self):
-        """get_defence method returns the defence of the pokemon"""
-        """Best and worst complexity: O(1)"""
+        """get_defence method returns the defence of the pokemon
+            :complexity: Best and worst complexity: O(1)"""
         return 6 + self.level
 
     def damage_after_attacked(self, another_pokemon: PokemonBase):
@@ -208,6 +208,6 @@ class Squirtle(PokemonBase):
             self.hp -= damage // 2
 
     def __str__(self) -> str:
-        """String statement returns Squirtle HP and its level"""
-        """Best and worst complexity: O(1)"""
+        """String statement returns Squirtle HP and its level
+        :complexity: Best and worst complexity: O(1)"""
         return "Squirtle's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
