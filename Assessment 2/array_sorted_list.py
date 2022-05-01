@@ -148,16 +148,21 @@ class ArraySortedList(SortedList[T]):
             elif self[i].value.get_name() == 'Squirtle':
                 squir.append(self[i])
         arr = charm + bulb + squir
-        # sorting arr in non-increasing order
+        # sorting arr in non-decreasing order
         for i in range(length):
             current = arr[i]
-            j = current - 1
-            while j >= 0 and arr[j].key < current.key:
+            j = i - 1
+            while j >= 0 and arr[j].key > current.key:
                 arr[j + 1] = arr[j]
                 j -= 1
             arr[j+1] = current
-        # resetting sorted list
-        self.reset()
-        # adding items from arr to sorted list
+        # deleting all items from sorted list
         for i in range(length):
-            self[i] = arr[i]
+            self.delete_at_index(0)
+        # # adding items from arr to sorted list
+        # for i in range(length):
+        #     self.array[i] = arr[i]
+        #     self.length += 1
+        for i in range(length):
+            self.__setitem__(i, arr[i])
+            self.length += 1

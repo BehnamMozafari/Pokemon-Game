@@ -158,17 +158,16 @@ class PokeTeam:
                 output += str(current_pokemon)
                 if i != team_length - 1:
                     output += ", "
-            return output
         elif self.battle_mode == 1:
             for i in range(team_length):
                 current_pokemon = self.team.item_at_index(i)
                 output += str(current_pokemon)
                 if not i == team_length - 1:
                     output += ", "
-            return output
         elif self.battle_mode == 2:
             for i in range(team_length):
-                current_pokemon = self.team.item_at_index(i)
+                current_pokemon = self.team[team_length - 1 - i].value
                 output += str(current_pokemon)
-                if not i == team_length - 1:
+                if i != team_length - 1:
                     output += ", "
+        return output
