@@ -44,7 +44,7 @@ class Charmander(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        return "Charmander's HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Charmander's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
 """Bulbasaur class"""
@@ -89,7 +89,7 @@ class Bulbasaur(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
-        return "Bulbasaur's HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Bulbasaur's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
 """Squirtle class"""
@@ -127,4 +127,4 @@ class Squirtle(PokemonBase):
         return "water"
 
     def __str__(self) -> str:
-        return "Squirtle's HP = " + str(self.hp) + " and level = " + str(self.level)
+        return "Squirtle's HP = " + str(int(self.hp)) + " and level = " + str(self.level)

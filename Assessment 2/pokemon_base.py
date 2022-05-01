@@ -27,7 +27,7 @@ class PokemonBase(ABC):
 
     """hp getter"""
     def get_hp(self):
-        return self.hp
+        return int(self.hp)
     """hp setter"""
     def set_hp(self, hp):
         self.hp = hp
