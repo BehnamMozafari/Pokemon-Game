@@ -14,8 +14,8 @@ from GlitchMon import MissingNo
 
 
 class PokeTeam:
-    """ Class for assembling a team of Pokemon.
-        :complexity: Best and worst complexity: O(1)"""
+    """ Class for assembling a team of Pokemon. """
+
     def __init__(self, team_name: str) -> None:
         self.team = None
         self.team_name = team_name
@@ -38,7 +38,7 @@ class PokeTeam:
             raise ValueError("Invalid Criterion\n")
 
         self.criterion = criterion
-
+        # initialising team ADT
         self.battle_mode = battle_mode
         if self.battle_mode == 0:
             self.team = ArrayStack(self.limit)
@@ -46,17 +46,21 @@ class PokeTeam:
             self.team = CircularQueue(self.limit)
         else:
             self.team = ArraySortedList(self.limit)
-
         team_prompt = "Howdy Trainer! Choose your team as C B S\nwhere C is the number of Charmanders\n      B is the" \
                       " number of Bulbasaurs\n      S is the number of Squirtles\n"
         correct_input = False
+        # try to call assign team, if there is an error, ask for input again
         while not correct_input:
             try:
+                # asking for input
                 team_input = input(team_prompt).split()
                 charm = int(team_input[0])
                 bulb = int(team_input[1])
                 squir = int(team_input[2])
-                miss = int(team_input[3])
+                if len(team_input) > 3:
+                    miss = int(team_input[3])
+                else:
+                    miss = 0
                 self.assign_team(charm, bulb, squir, miss)
             except ValueError:
                 print("Please enter a valid team\n")
@@ -74,13 +78,14 @@ class PokeTeam:
         :complexity: Despite there are for loops, there is a max constant on how many pokemons there are in a team
         Hemce, best and worst case complexity for assign_team function is O(1)
         """
-        if charm + bulb + squir + miss> self.limit:
+        if charm + bulb + squir + miss > self.limit:
             raise ValueError("Number of Pokemon exceeds limit\n")
         if charm < 0 or bulb < 0 or squir < 0:
             raise ValueError("Number of Pokemon cannot be negative\n")
         if miss > 1:
             raise ValueError("Too many MissingNo\n")
 
+        # adding pokemon to ADT based on battle type and criterion if optimised mode battle
         if self.battle_mode == 0:
             for _ in range(miss):
                 missingno = MissingNo()
