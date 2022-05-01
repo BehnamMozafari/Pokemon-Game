@@ -49,26 +49,28 @@ class MissingNo(GlitchMon):
         return int(((4 + 5 + (6 + 1)) / 3) + self.level)
 
     def defend(self, damage: int) -> None:
-        rand = random.randint(0,2)
-        if rand == 0:
-            if damage > self.defence:
-                self.hp -= damage
-            else:
-                self.hp -= damage // 2
-        elif rand == 1:
-            if damage > (self.defence + 5):
-                self.hp -= damage
-            else:
-                self.hp -= damage // 2
-        elif rand == 2:
-            if damage > (self.defence * 2):
-                self.hp -= damage
-            else:
-                self.hp -= damage // 2
-
         n = random.randint(0, 3)
         if n == 2:
             self.superpower()
+        else:
+            rand = random.randint(0,2)
+            if rand == 0:
+                if damage > self.defence:
+                    self.hp -= damage
+                else:
+                    self.hp -= damage // 2
+            elif rand == 1:
+                if damage > (self.defence + 5):
+                    self.hp -= damage
+                else:
+                    self.hp -= damage // 2
+            elif rand == 2:
+                if damage > (self.defence * 2):
+                    self.hp -= damage
+                else:
+                    self.hp -= damage // 2
+
+
 
     def __str__(self):
         return "MissingNo's hp = " + str(self.hp) + " and level = " + str(self.level)

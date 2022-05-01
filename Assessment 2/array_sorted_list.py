@@ -141,6 +141,7 @@ class ArraySortedList(SortedList[T]):
         charm = []
         bulb = []
         squir = []
+        miss = []
         length = len(self)
         for i in range(length):
             if criterion == 'lvl':
@@ -160,7 +161,9 @@ class ArraySortedList(SortedList[T]):
                 bulb.append(self[i])
             elif self[i].value.get_name() == 'Squirtle':
                 squir.append(self[i])
-        arr = squir + bulb + charm
+            elif self[i].value.get_name() == 'MissingNo':
+                miss.append(self[i])
+        arr = miss + squir + bulb + charm
         # sorting arr in non-decreasing order
         for i in range(1, length):
             current = arr[i]
@@ -172,7 +175,7 @@ class ArraySortedList(SortedList[T]):
         # deleting all items from sorted list
         for i in range(length):
             self.delete_at_index(0)
-        # # adding items from arr to sorted list
+        # adding items from arr to sorted list
         for i in range(length):
             self.array[i] = arr[i]
             self.length += 1
