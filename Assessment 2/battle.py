@@ -91,17 +91,17 @@ class Battle:
                         pokemon_1.decrease_hp()
                         pokemon_2.decrease_hp()
                         if pokemon_1.get_hp() > 0:
-                            self.team_1.team.append(pokemon_1)
+                            self.team1.team.append(pokemon_1)
                         if pokemon_2.get_hp() > 0:
-                            self.team_2.team.append(pokemon_2)
+                            self.team2.team.append(pokemon_2)
                     elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() <= 0:
                         pass
                     elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() > 0:
                         pokemon_2.update_level()
-                        self.team_2.team.append(pokemon_2)
+                        self.team2.team.append(pokemon_2)
                     elif pokemon_2.get_hp() <= 0 and pokemon_1.get_hp() > 0:
                         pokemon_1.update_level()
-                        self.team_1.team.append(pokemon_1)
+                        self.team1.team.append(pokemon_1)
 
 
             # Second check condition whether speed of pokemon_2 is larger than speed of pokemon_1:
@@ -123,17 +123,17 @@ class Battle:
                         pokemon_1.decrease_hp()
                         pokemon_2.decrease_hp()
                         if pokemon_1.get_hp() > 0:
-                            self.team_1.team.append(pokemon_1)
+                            self.team1.team.append(pokemon_1)
                         if pokemon_2.get_hp() > 0:
-                            self.team_2.team.append(pokemon_2)
+                            self.team2.team.append(pokemon_2)
                     elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() <= 0:
                         pass
                     elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() > 0:
                         pokemon_2.update_level()
-                        self.team_2.team.append(pokemon_2)
+                        self.team1.team.append(pokemon_2)
                     elif pokemon_2.get_hp() <= 0 and pokemon_1.get_hp() > 0:
                         pokemon_1.update_level()
-                        self.team_1.team.append(pokemon_1)
+                        self.team2.team.append(pokemon_1)
 
             # Third check condition: if the speed of pokemon_1 and pokemon_2 equals, calculate the hp after attack
             # Each pokemon hp is decreased by 1 if they both alive
@@ -153,10 +153,10 @@ class Battle:
                     pass
                 elif pokemon_1.get_hp() <= 0 and pokemon_2.get_hp() > 0:
                     pokemon_2.update_level()
-                    self.team_2.team.append(pokemon_2)
+                    self.team2.team.append(pokemon_2)
                 elif pokemon_2.get_hp() <= 0 and pokemon_1.get_hp() > 0:
                     pokemon_1.update_level()
-                    self.team_1.team.append(pokemon_1)
+                    self.team1.team.append(pokemon_1)
 
         # If eventually both team is empty, print Draw to the console
         if self.team1.team.is_empty() == True and self.team2.team.is_empty() == True:
