@@ -132,7 +132,8 @@ class ArraySortedList(SortedList[T]):
         :pre: List is not empty
         :param criterion: criterion used to sort list
         :raises Exception: If the list is empty
-        :complexity:
+        :complexity: Best O(N), where N is the length of list, Occurs when list is already sorted, worst O(N^2),
+                 where N is the length of list, when list is in decreasing order
         """
         if self.is_empty():
             raise Exception("Sorted List is empty")
@@ -176,7 +177,7 @@ class ArraySortedList(SortedList[T]):
                     miss.append(self[i])
         # create arr
         arr = miss + squir + bulb + charm
-        # sorting arr in non-decreasing order
+        # sorting arr in non-decreasing order using insertion sort
         for i in range(1, length):
             current = arr[i]
             j = i - 1
