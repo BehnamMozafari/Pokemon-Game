@@ -1,3 +1,9 @@
+""" PokemonBase class implementation:
+
+    Define abstract methods, getters and setters for base of each Pokemon
+
+"""
+
 __author__ = "Nhu Nguyen"
 
 
