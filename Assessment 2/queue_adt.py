@@ -111,7 +111,7 @@ class CircularQueue(Queue[T]):
         """
         if self.is_empty():
             raise Exception("Queue is empty")
-        return self.array[index]
+        return self.array[(self.front + index) % len(self.array)]
 
 
 class TestQueue(unittest.TestCase):

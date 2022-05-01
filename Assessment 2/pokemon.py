@@ -52,9 +52,9 @@ class Charmander(PokemonBase):
 
 class Bulbasaur(PokemonBase):
     """Bulbasaur type effectiveness"""
-    EFFECTIVENESS_FIRE = 2
-    EFFECTIVENESS_WATER = 1
-    EFFECTIVENESS_GRASS = 0.5
+    EFFECTIVENESS_FIRE = 0.5
+    EFFECTIVENESS_WATER = 2
+    EFFECTIVENESS_GRASS = 1
 
     def __init__(self) -> None:
         PokemonBase.__init__(self, 9, 1)
@@ -78,7 +78,7 @@ class Bulbasaur(PokemonBase):
     # Bulbasaur calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence():
+        if damage > self.get_defence() + 5:
             self.hp -= damage
         else:
             self.hp -= damage // 2
@@ -97,9 +97,9 @@ class Bulbasaur(PokemonBase):
 
 class Squirtle(PokemonBase):
     """Squirtle type effectiveness"""
-    EFFECTIVENESS_FIRE = 0.5
-    EFFECTIVENESS_WATER = 2
-    EFFECTIVENESS_GRASS = 1
+    EFFECTIVENESS_FIRE = 2
+    EFFECTIVENESS_WATER = 1
+    EFFECTIVENESS_GRASS = 0.5
 
     def __init__(self) -> None:
         PokemonBase.__init__(self, 8, 1)
@@ -118,7 +118,7 @@ class Squirtle(PokemonBase):
 
     def damage_after_attacked(self, another_pokemon: PokemonBase):
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence():
+        if damage > self.get_defence() * 2:
             self.hp -= damage
         else:
             self.hp -= damage // 2
