@@ -120,6 +120,7 @@ class PokeTeam:
                     self.team.add(ListItem(squirtle, squirtle.get_level()))
                 for _ in range(miss):
                     missingno = MissingNo()
+                    self.team.add(ListItem(missingno, missingno.get_level()))
             elif self.criterion == 'hp':
                 for _ in range(charm):
                     charmander = Charmander()
@@ -130,6 +131,9 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_hp()))
+                for _ in range(miss):
+                    missingno = MissingNo()
+                    self.team.add(ListItem(missingno, missingno.get_hp()))
             elif self.criterion == 'atk':
                 for _ in range(charm):
                     charmander = Charmander()
@@ -140,6 +144,9 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_attack()))
+                for _ in range(miss):
+                    missingno = MissingNo()
+                    self.team.add(ListItem(missingno, missingno.get_attack()))
             elif self.criterion == 'def':
                 for _ in range(charm):
                     charmander = Charmander()
@@ -150,6 +157,9 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_defence()))
+                for _ in range(miss):
+                    missingno = MissingNo()
+                    self.team.add(ListItem(missingno, missingno.get_defence()))
             elif self.criterion == 'spd':
                 for _ in range(charm):
                     charmander = Charmander()
@@ -160,6 +170,9 @@ class PokeTeam:
                 for _ in range(squir):
                     squirtle = Squirtle()
                     self.team.add(ListItem(squirtle, squirtle.get_speed()))
+                for _ in range(miss):
+                    missingno = MissingNo()
+                    self.team.add(ListItem(missingno, missingno.get_speed()))
             self.team.poke_reorder(self.criterion)
 
     def __str__(self) -> str:

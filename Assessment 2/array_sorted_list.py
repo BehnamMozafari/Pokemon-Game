@@ -171,7 +171,7 @@ class ArraySortedList(SortedList[T]):
         if missingno_in_team:
             for i in range(length):
                 if self[i].value.get_name() == 'MissingNo':
-                    if num_battled != length - 1:
+                    if num_battled < length - 1:
                         self[i].key = 1
                     miss.append(self[i])
         # create arr
