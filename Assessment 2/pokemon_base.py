@@ -41,10 +41,6 @@ class PokemonBase(ABC):
     def update_level(self):
         self.level += 1
 
-    """increase hp by 1 function"""
-    def increase_hp(self):
-        self.hp += 1
-
     """decrease hp by 1 function"""
     def decrease_hp(self):
         self.hp -= 1
