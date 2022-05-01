@@ -91,6 +91,7 @@ class PokemonBase(ABC):
 
     def attack_calculation(self, another_pokemon):
         """Attack calculation based on poke type
+        :param another_pokemon: takes in the pokemon from another team as a parameter
         :complexity: best and worst case complexity O(1)"""
         if self.poke_type == "water":
             water_damage = another_pokemon.get_attack() * another_pokemon.EFFECTIVENESS_WATER
