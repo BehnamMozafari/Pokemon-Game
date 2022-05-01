@@ -17,12 +17,12 @@ class GlitchMon(PokemonBase):
     def __init__(self, hp: int, level: int) -> None:
         PokemonBase.__init__(self, hp, level, "")
 
-    def increase_hp(self):
+    def increase_hp(self) -> None:
         """This method increase hp level by 1
         :complexity: best and worst case complexity of O(1)"""
         self.hp += 1
 
-    def superpower(self):
+    def superpower(self) -> None:
         """This method gives random chance to choose 1 of 3 effects: gain 1 level, gain 1 hp, gain 1 hp and 1 level
         :complexity: best and worst case complexity of O(1)"""
         n = random.randint(0, 2)
@@ -92,7 +92,7 @@ class MissingNo(GlitchMon):
                 else:
                     self.hp -= damage // 2
 
-    def __str__(self):
+    def __str__(self) -> str:
         """String statement returns Charmander HP and its level
         :complexity: best and worst case complexity of O(1)"""
         return "MissingNo's HP = " + str(self.hp) + " and level = " + str(self.level)
