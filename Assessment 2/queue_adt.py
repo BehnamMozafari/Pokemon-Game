@@ -108,6 +108,7 @@ class CircularQueue(Queue[T]):
         """ Returns the item at a specified index from the queue.
         :param index: index of desired item
         :raise Exception: if the queue is empty
+        :complexity: Best and worst O(1)
         """
         if self.is_empty():
             raise Exception("Queue is empty")

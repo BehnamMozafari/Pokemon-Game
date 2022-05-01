@@ -108,6 +108,7 @@ class ArrayStack(Stack[T]):
         """ Returns the item at a specified index from the stack.
         :param index: index of desired item
         :raise Exception: if the stack is empty
+        :complexity: Best and worst O(1),
         """
         if self.is_empty():
             raise Exception("Stack is empty")
