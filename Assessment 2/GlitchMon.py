@@ -94,4 +94,4 @@ class MissingNo(GlitchMon):
     def __str__(self):
         """String statement returns Charmander HP and its level"""
         """Best and worst complexity: O(1)"""
-        return "MissingNo's hp = " + str(self.hp) + " and level = " + str(self.level)
+        return "MissingNo's HP = " + str(self.hp) + " and level = " + str(self.level)
