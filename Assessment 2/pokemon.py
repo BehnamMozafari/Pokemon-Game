@@ -12,7 +12,7 @@ class Charmander(PokemonBase):
     EFFECTIVENESS_GRASS = 2
 
     def __init__(self) -> None:
-        PokemonBase.__init__(self, 7, 1)
+        PokemonBase.__init__(self, 7, 1, "fire")
 
     # Charmander name getter
     def get_name(self):
@@ -38,9 +38,6 @@ class Charmander(PokemonBase):
         else:
             self.hp -= damage // 2
 
-    # Charmander poke type getter
-    def get_poke_type(self) -> str:
-        return "fire"
 
     # String printing
     def __str__(self) -> str:
@@ -57,7 +54,7 @@ class Bulbasaur(PokemonBase):
     EFFECTIVENESS_GRASS = 1
 
     def __init__(self) -> None:
-        PokemonBase.__init__(self, 9, 1)
+        PokemonBase.__init__(self, 9, 1, "grass")
 
     # Bulbasaur name getter
     def get_name(self):
@@ -83,9 +80,6 @@ class Bulbasaur(PokemonBase):
         else:
             self.hp -= damage // 2
 
-    # Bulbasaur poke type getter
-    def get_poke_type(self) -> str:
-        return "grass"
 
     # String printing
     def __str__(self) -> str:
@@ -102,7 +96,7 @@ class Squirtle(PokemonBase):
     EFFECTIVENESS_GRASS = 0.5
 
     def __init__(self) -> None:
-        PokemonBase.__init__(self, 8, 1)
+        PokemonBase.__init__(self, 8, 1, "water")
 
     def get_name(self):
         return "Squirtle"
@@ -122,9 +116,6 @@ class Squirtle(PokemonBase):
             self.hp -= damage
         else:
             self.hp -= damage // 2
-
-    def get_poke_type(self) -> str:
-        return "water"
 
     def __str__(self) -> str:
         return "Squirtle's HP = " + str(int(self.hp)) + " and level = " + str(self.level)

@@ -10,13 +10,14 @@ class PokemonBase(ABC):
     level: int = 1
 
     """Raise exception if hp is negative or level is less than equal 0"""
-    def __init__(self, hp: int, level: int) -> None:
+    def __init__(self, hp: int, level: int, poke_type: str) -> None:
         if hp < 0:
             raise ValueError("hp should not be negative")
         if level < 1:
             raise ValueError("level must be greater or equal to 1")
         self.hp = hp
         self.level = level
+        self.poke_type = poke_type
 
     """Check if hp is greater equal to 0"""
     def lose_hp(self, lost_hp: int) -> None:
@@ -68,10 +69,6 @@ class PokemonBase(ABC):
 
     @abstractmethod
     def damage_after_attacked(self, Pokemonbase): 
-        pass 
-
-    @abstractmethod
-    def get_poke_type(self) -> str:
         pass
 
     @abstractmethod
