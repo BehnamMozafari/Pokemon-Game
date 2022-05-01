@@ -69,6 +69,7 @@ class MissingNo(GlitchMon):
 
     def damage_after_attacked(self, another_pokemon: PokemonBase) -> None:
         """defend method: creates probability 25% chance everytime Pokemon has to defend from an attack
+        :param another_pokemon: attacking pokemon
         :complexity: best and worst case complexity of O(1)"""
         damage = self.attack_calculation(another_pokemon)
         n = random.randint(0, 3)

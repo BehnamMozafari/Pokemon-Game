@@ -50,7 +50,7 @@ class Battle:
         :param pokemon_2: defending pokemon
         :param team2: team of defending pokemon
         :param pokemon_2_index: index of defending pokemon
-        :complexity: best and worst of O(1
+        :complexity: best and worst of O(1)
         """
         # pokemon_1 attacks pokemon_2
         # Calculate hp of pokemon_2 after attacked by pokemon_1

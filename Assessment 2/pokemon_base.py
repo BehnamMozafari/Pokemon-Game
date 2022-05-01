@@ -36,29 +36,34 @@ class PokemonBase(ABC):
         else:
             raise ValueError("ValueError exception thrown")
 
-    """ Hp getter
-        :complexity: best and worst case complexity of O(1)"""    
+
     def get_hp(self) -> int:
+        """ Hp getter
+                :complexity: best and worst case complexity of O(1)"""
         return int(self.hp)
 
-    """ Hp setter
-        :complexity: best and worst case complexity of O(1)"""
+
     def set_hp(self, hp) -> None:
+        """ Hp setter
+                :complexity: best and worst case complexity of O(1)"""
         self.hp = hp
 
-    """ Level getter 
-        :complexity: best and worst case complexity of O(1)"""
+
     def get_level(self) -> int:
+        """ Level getter
+                :complexity: best and worst case complexity of O(1)"""
         return self.level
 
-    """ Level setter
-        :complexity: best and worst case complexity of O(1)"""
+
     def update_level(self) -> None:
+        """ Level setter
+            :complexity: best and worst case complexity of O(1)"""
         self.level += 1
 
-    """ Decrease hp by 1 function. 
-        :complexity: best and worst case complexity of O(1)"""
+
     def decrease_hp(self) -> None:
+        """ Decrease hp by 1 function.
+            :complexity: best and worst case complexity of O(1)"""
         self.hp -= 1
 
 
