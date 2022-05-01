@@ -173,6 +173,7 @@ class Battle():
             elif self.team_2.team.is_empty():
                 return self.team_1.team_name
 
+
 if __name__ == '__main__':
     x  = Battle("AB","CD");
     print(x.rotating_mode_battle())
