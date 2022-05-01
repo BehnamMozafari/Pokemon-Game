@@ -1,5 +1,11 @@
 __author__ = "Nhu Nguyen"
 
+""" Pokemon.py implementation:  
+
+Personalises attributes for Charmander, Bulbasaur, Squirtle class 
+
+"""
+
 from pokemon_base import PokemonBase
 
 """Charmander class"""
@@ -32,6 +38,11 @@ class Charmander(PokemonBase):
 
     # Charmander calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
+        """ Function calculates damage after attack from the opposing pokemon
+        :param self: the pokemon itself (fire type)
+        :param another_pokemon: the opposing pokemon of type PokemonBase
+        :complexity:
+        """
         damage = self.attack_calculation(another_pokemon)
         if damage > self.get_defence():
             self.hp -= damage
@@ -41,6 +52,7 @@ class Charmander(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
+        """String statement returns Charmander HP and its level"""
         return "Charmander's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
@@ -74,6 +86,11 @@ class Bulbasaur(PokemonBase):
 
     # Bulbasaur calculate damage after attack
     def damage_after_attacked(self, another_pokemon: PokemonBase):
+        """ Function calculates damage after attack from the opposing pokemon
+        :param self: the pokemon itself (grass type)
+        :param another_pokemon: the opposing pokemon of type PokemonBase
+        :complexity:
+        """
         damage = self.attack_calculation(another_pokemon)
         if damage > self.get_defence() + 5:
             self.hp -= damage
@@ -83,6 +100,7 @@ class Bulbasaur(PokemonBase):
 
     # String printing
     def __str__(self) -> str:
+        """String statement returns Bulbasaur HP and its level"""
         return "Bulbasaur's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
 
 
@@ -111,6 +129,11 @@ class Squirtle(PokemonBase):
         return 6 + self.level
 
     def damage_after_attacked(self, another_pokemon: PokemonBase):
+        """ Function calculates damage after attack from the opposing pokemon
+        :param self: the pokemon itself (water type)
+        :param another_pokemon: the opposing pokemon of type PokemonBase
+        :complexity:
+        """
         damage = self.attack_calculation(another_pokemon)
         if damage > self.get_defence() * 2:
             self.hp -= damage
@@ -118,4 +141,5 @@ class Squirtle(PokemonBase):
             self.hp -= damage // 2
 
     def __str__(self) -> str:
+        """String statement returns Squirtle HP and its level"""
         return "Squirtle's HP = " + str(int(self.hp)) + " and level = " + str(self.level)
