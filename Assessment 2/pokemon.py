@@ -92,7 +92,7 @@ class Bulbasaur(PokemonBase):
         :complexity:
         """
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence() + 5:
+        if damage > (self.get_defence() + 5):
             self.hp -= damage
         else:
             self.hp -= damage // 2
@@ -135,7 +135,7 @@ class Squirtle(PokemonBase):
         :complexity:
         """
         damage = self.attack_calculation(another_pokemon)
-        if damage > self.get_defence() * 2:
+        if damage > (self.get_defence() * 2):
             self.hp -= damage
         else:
             self.hp -= damage // 2
